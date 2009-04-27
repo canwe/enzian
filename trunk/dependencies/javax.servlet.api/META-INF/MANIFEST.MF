@@ -1,0 +1,7 @@
+Manifest-Version: 1
+Bundle-Version: 2.3.0.001_SNAPSHOT
+Bundle-Name: javax.servlet.api 2.3 [osgi]
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: javax.servlet.api
+Import-Package: org.osgi.framework,org.osgi.util.tracker
+
