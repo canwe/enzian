@@ -1,8 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-  <classpathentry kind="var" path="M2_REPO/javax/portlet/portlet-api/2.0/portlet-api-2.0.jar" sourcepath="M2_REPO/javax/portlet/portlet-api/2.0/portlet-api-2.0-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/wicket/wicket/1.4-rc2/wicket-1.4-rc2.jar" sourcepath="M2_REPO/org/apache/wicket/wicket/1.4-rc2/wicket-1.4-rc2-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

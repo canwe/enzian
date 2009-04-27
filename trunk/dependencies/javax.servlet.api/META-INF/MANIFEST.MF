@@ -4,4 +4,5 @@ Bundle-Name: javax.servlet.api 2.3 [osgi]
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: javax.servlet.api
 Import-Package: org.osgi.framework,org.osgi.util.tracker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 
