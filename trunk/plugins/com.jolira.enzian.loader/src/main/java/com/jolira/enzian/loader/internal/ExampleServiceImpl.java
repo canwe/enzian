@@ -16,7 +16,7 @@ public final class ExampleServiceImpl
 
     public String scramble( String text )
     {
-        List charList = new ArrayList();
+        List<Character> charList = new ArrayList<Character>();
 
         char[] textChars = text.toCharArray();
         for( int i = 0; i < textChars.length; i++ )
@@ -29,7 +29,7 @@ public final class ExampleServiceImpl
         char[] mixedChars = new char[text.length()];
         for( int i = 0; i < mixedChars.length; i++ )
         {
-            mixedChars[i] = ( (Character) charList.get( i ) ).charValue();
+            mixedChars[i] = charList.get( i ).charValue();
         }
 
         return new String( mixedChars );

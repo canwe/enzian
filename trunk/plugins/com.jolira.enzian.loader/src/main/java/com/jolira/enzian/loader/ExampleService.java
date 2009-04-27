@@ -3,10 +3,10 @@ package com.jolira.enzian.loader;
 /**
  * Public API representing an example OSGi service
  */
-public interface ExampleService
-{
-    // public methods go here...
-
-    String scramble( String text );
+public interface ExampleService {
+    /**
+     * @param text
+     * @return nothing important
+     */
+    String scramble(String text);
 }
-

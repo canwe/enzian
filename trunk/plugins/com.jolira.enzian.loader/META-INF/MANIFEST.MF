@@ -3,5 +3,8 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Bundle-Name: com.jolira.enzian.loader
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: com.jolira.enzian.loader
-Import-Package: org.osgi.framework,org.osgi.util.tracker
+Import-Package: junit.framework,
+ org.osgi.framework,
+ org.osgi.util.tracker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 
