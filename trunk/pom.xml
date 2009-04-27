@@ -1,45 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <!--
-   | put company details here
   <organization>
-    <name>...</name>
-    <url>http://...</url>
+    <name>jolira</name>
+    <url>http://jolira.com</url>
   </organization>
-  -->
 
-  <!--
-   | put license details here
   <licenses>
     <license>
-      <name>...</name>
-      <url>http://...</url>
+      <name>GNU GENERAL PUBLIC LICENSE Version 2</name>
+      <url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
       <comments>
+      Copyright (C) 2009 jolira 46 Promontory Dr. Richmond, CA 94804
       </comments>
     </license>
   </licenses>
-  -->
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian</groupId>
   <artifactId>enzian</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>com.jolira.enzian (OSGi project)</name>
-
-  <!--
-   | describe your project here
-  -->
-
-  <description>Generated using Pax-Construct</description>
+  <name>com.jolira.enzian</name>
+  <description>A Plugin-based Web Application &amp; Framework</description>
 
   <properties>
-    <!--
-     | some example OSGi runtime properties
-    -->
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <org.osgi.service.http.port>7080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>7443</org.osgi.service.http.port.secure>
   </properties>
 
   <packaging>pom</packaging>
@@ -51,6 +38,27 @@
     <module>plugins</module>
   </modules>
 
+	<developers>
+		<developer>
+			<id>joachim.kainz</id>
+			<name>Joachim Kainz</name>
+			<email>jfk@jolira.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-8</timezone>
+		</developer>
+		<developer>
+			<id>gabe.hopper</id>
+			<name>Gabriel Hopper</name>
+			<email>gabe@jolira.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-8</timezone>
+		</developer>
+	</developers>
+	
   <build>
     <plugins>
       <plugin>
@@ -58,27 +66,20 @@
         <artifactId>maven-pax-plugin</artifactId>
         <version>1.4</version>
         <configuration>
-          <!--
-           | some example Pax-Runner settings
-          -->
           <provision>
             <param>--platform=felix</param>
             <param>--profiles=minimal</param>
           </provision>
         </configuration>
-        <executions>
-          <!--
-           | uncomment to auto-generate IDE files
+        <!-- executions>
           <execution>
             <id>ide-support</id>
             <goals>
               <goal>eclipse</goal>
             </goals>
-          </execution>
-          -->
+          </execution -->
         </executions>
       </plugin>
     </plugins>
   </build>
-
 </project>
