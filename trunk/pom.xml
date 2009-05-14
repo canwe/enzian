@@ -58,7 +58,11 @@
 			<timezone>-8</timezone>
 		</developer>
 	</developers>
-	
+	<scm>
+		<connection>scm:svn:https://enzian.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://enzian.googlecode.com/svn/trunk/</developerConnection>
+		<url>https://enzian.googlecode.com/svn/trunk/</url>
+	</scm>
   <build>
     <plugins>
       <plugin>
