@@ -81,8 +81,8 @@
             <goals>
               <goal>eclipse</goal>
             </goals>
-          </execution -->
-        </executions>
+          </execution>
+        </executions -->
       </plugin>
     </plugins>
   </build>

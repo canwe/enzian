@@ -17,6 +17,7 @@
 
   <modules>
     <module>com.jolira.enzian.loader</module>
+    <module>com.jolira.enzian.console</module>
   </modules>
 
 </project>
