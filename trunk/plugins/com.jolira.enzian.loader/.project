@@ -1,6 +1,6 @@
 <projectDescription>
   <name>com.jolira.enzian.loader [0.0.1-SNAPSHOT]</name>
-  <comment>Generated using Pax-Construct</comment>
+  <comment>A Plugin-based Web Application &amp; Framework</comment>
   <projects/>
   <buildSpec>
     <buildCommand>
@@ -12,8 +12,12 @@
     <buildCommand>
       <name>org.eclipse.pde.SchemaBuilder</name>
     </buildCommand>
+    <buildCommand>
+      <name>org.maven.ide.eclipse.maven2Builder</name>
+    </buildCommand>
   </buildSpec>
   <natures>
+    <nature>org.maven.ide.eclipse.maven2Nature</nature>
     <nature>org.eclipse.jdt.core.javanature</nature>
     <nature>org.eclipse.pde.PluginNature</nature>
   </natures>
