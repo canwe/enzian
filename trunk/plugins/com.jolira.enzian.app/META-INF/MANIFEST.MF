@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Private-Package: com.jolira.enzian.app.internal.*
+Built-By: Joachim Kainz
+Tool: Bnd-0.0.255
+Bundle-Name: com.jolira.enzian.app
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: jolira
+Build-Jdk: 1.6.0_14
+Bundle-Version: 0.0.1.SNAPSHOT
+Bnd-LastModified: 1244174516333
+Bundle-ManifestVersion: 2
+Bundle-Activator: com.jolira.enzian.app.internal.ExampleActivator
+Bundle-License: http://www.gnu.org/licenses/gpl-2.0.txt
+Bundle-Description: A Plugin-based Web Application & Framework
+Import-Package: com.jolira.enzian.app.internal
+Bundle-SymbolicName: com.jolira.enzian.app
+Bundle-DocURL: http://jolira.com
+

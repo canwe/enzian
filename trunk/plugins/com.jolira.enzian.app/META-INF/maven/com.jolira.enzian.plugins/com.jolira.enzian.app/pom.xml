@@ -9,13 +9,13 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>com.jolira.enzian.admin</bundle.symbolicName>
-    <bundle.namespace>com.jolira.enzian.admin</bundle.namespace>
+    <bundle.symbolicName>com.jolira.enzian.app</bundle.symbolicName>
+    <bundle.namespace>com.jolira.enzian.app</bundle.namespace>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.plugins</groupId>
-  <artifactId>com.jolira.enzian.admin</artifactId>
+  <artifactId>com.jolira.enzian.app</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>${bundle.symbolicName}</name>

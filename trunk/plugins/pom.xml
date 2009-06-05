@@ -16,9 +16,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>com.jolira.enzian.loader</module>
+    <module>com.jolira.enzian.app</module>
     <module>com.jolira.enzian.console</module>
-    <module>com.jolira.enzian.admin</module>
   </modules>
 
 </project>

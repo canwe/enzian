@@ -1,7 +1,24 @@
-Manifest-Version: 1
-Bundle-Version: 3.8.1.001_SNAPSHOT
+Manifest-Version: 1.0
+Export-Package: junit.swingui.icons,junit.swingui;uses:="javax.swing.t
+ ext,javax.swing.border,javax.swing.tree,junit.runner,junit.extensions
+ ,junit.framework,javax.swing,javax.swing.event",junit.framework,junit
+ .runner;uses:="junit.framework",junit.awtui;uses:="junit.framework,ju
+ nit.runner",junit.textui;uses:="junit.framework,junit.runner",junit.e
+ xtensions;uses:="junit.framework"
+Private-Package: !*
+Bundle-ClassPath: .,target/pax-eclipse
+Built-By: Joachim Kainz
+Tool: Bnd-0.0.255
 Bundle-Name: junit 3.8.1 [osgi]
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.6.0_14
+Bundle-Version: 3.8.1
+Bnd-LastModified: 1244174506589
 Bundle-ManifestVersion: 2
+Bundle-Description: Simple OSGi wrapper around third-party jar(s)
+Import-Package: javax.swing,javax.swing.border,javax.swing.event,javax
+ .swing.text,javax.swing.tree,junit.awtui,junit.extensions,junit.frame
+ work,junit.runner,junit.swingui,junit.swingui.icons,junit.textui
 Bundle-SymbolicName: junit
-Import-Package: org.osgi.framework,org.osgi.util.tracker
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Embed-Dependency: *;scope=compile|runtime;type=!pom;inline=true
+

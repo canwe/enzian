@@ -1,8 +1,9 @@
 <classpath>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-  <classpathentry kind="var" path="M2_REPO/javax/portlet/portlet-api/2.0/portlet-api-2.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/wicket/wicket/1.4-rc2/wicket-1.4-rc2.jar"/>
+  <classpathentry path="target/classes" kind="output"/>
+  <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+  <classpathentry path="org.eclipse.pde.core.requiredPlugins" kind="con"/>
+  <classpathentry sourcepath="M2_REPO/javax/portlet/portlet-api/2.0/portlet-api-2.0-sources.jar" path="M2_REPO/javax/portlet/portlet-api/2.0/portlet-api-2.0.jar" kind="var"/>
+  <classpathentry sourcepath="M2_REPO/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2-sources.jar" path="M2_REPO/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2.jar" kind="var"/>
+  <classpathentry sourcepath="M2_REPO/org/apache/wicket/wicket/1.4-rc2/wicket-1.4-rc2-sources.jar" path="M2_REPO/org/apache/wicket/wicket/1.4-rc2/wicket-1.4-rc2.jar" kind="var"/>
+  <classpathentry sourcepath="C:\Users\Joachim Kainz\.m2\repository\org\apache\wicket\wicket\1.4-rc2\wicket-1.4-rc2-sources.jar" path="target/pax-eclipse" exported="true" kind="lib"/>
 </classpath>

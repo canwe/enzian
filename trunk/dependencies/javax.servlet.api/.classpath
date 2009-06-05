@@ -1,6 +1,7 @@
 <classpath>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-  <classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar"/>
+  <classpathentry path="target/classes" kind="output"/>
+  <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+  <classpathentry path="org.eclipse.pde.core.requiredPlugins" kind="con"/>
+  <classpathentry sourcepath="M2_REPO/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar" path="M2_REPO/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar" kind="var"/>
+  <classpathentry sourcepath="C:\Users\Joachim Kainz\.m2\repository\javax\servlet\servlet-api\2.3\servlet-api-2.3-sources.jar" path="target/pax-eclipse" exported="true" kind="lib"/>
 </classpath>
