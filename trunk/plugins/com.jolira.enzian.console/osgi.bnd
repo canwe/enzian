@@ -1,6 +1,0 @@
-#-----------------------------------------------------------------
-# Customization
-#-----------------------------------------------------------------
-
-Bundle-Activator: ${bundle.namespace}.internal.osgi.Activator
-Bundle-RequiredExecutionEnvironment: JavaSE-1.5
