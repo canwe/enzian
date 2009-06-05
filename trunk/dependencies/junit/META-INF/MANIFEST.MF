@@ -13,7 +13,7 @@ Bundle-Name: junit 3.8.1 [osgi]
 Created-By: Apache Maven Bundle Plugin
 Build-Jdk: 1.6.0_14
 Bundle-Version: 3.8.1
-Bnd-LastModified: 1244174506589
+Bnd-LastModified: 1244184299967
 Bundle-ManifestVersion: 2
 Bundle-Description: Simple OSGi wrapper around third-party jar(s)
 Import-Package: javax.swing,javax.swing.border,javax.swing.event,javax
