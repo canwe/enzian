@@ -11,7 +11,7 @@ Bundle-Name: javax.servlet.api 2.3 [osgi]
 Created-By: Apache Maven Bundle Plugin
 Build-Jdk: 1.6.0_14
 Bundle-Version: 2.3
-Bnd-LastModified: 1244184300612
+Bnd-LastModified: 1244185581859
 Bundle-ManifestVersion: 2
 Bundle-Description: Simple OSGi wrapper around third-party jar(s)
 Import-Package: javax.servlet,javax.servlet.http,javax.servlet.jsp,jav

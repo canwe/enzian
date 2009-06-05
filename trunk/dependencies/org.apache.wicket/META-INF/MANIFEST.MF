@@ -410,7 +410,7 @@ Bundle-Name: org.apache.wicket 1.4-rc2 [osgi]
 Created-By: Apache Maven Bundle Plugin
 Build-Jdk: 1.6.0_14
 Bundle-Version: 1.4.0.rc2
-Bnd-LastModified: 1244184301973
+Bnd-LastModified: 1244185590462
 Bundle-ManifestVersion: 2
 Bundle-Description: Simple OSGi wrapper around third-party jar(s)
 Import-Package: javax.crypto,javax.crypto.spec,javax.imageio,javax.por

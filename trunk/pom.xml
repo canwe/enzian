@@ -32,8 +32,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>poms</module>
-    <module>provision</module>
     <module>dependencies</module>
     <module>plugins</module>
   </modules>
