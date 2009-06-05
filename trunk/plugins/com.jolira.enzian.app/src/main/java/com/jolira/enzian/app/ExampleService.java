@@ -1,4 +1,4 @@
-package com.jolira.enzian.admin;
+package com.jolira.enzian.app;
 
 /**
  * Public API representing an example OSGi service
