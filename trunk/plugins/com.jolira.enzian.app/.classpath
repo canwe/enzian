@@ -1,17 +1,18 @@
 <classpath>
-  <classpathentry kind="src" path="." including="plugin.xml|plugin.properties|icons/**" excluding="**/*.java"/>
-  <classpathentry kind="src" path="src/main/java"/>
-  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
-  <classpathentry kind="src" path="src/test/java" output="target/test-classes"/>
-  <classpathentry kind="src" path="src/test/resources" output="target/test-classes" excluding="**/*.java"/>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.2/junit-3.8.2.jar" sourcepath="M2_REPO/junit/junit/3.8.2/junit-3.8.2-sources.jar">
+  <classpathentry excluding="**/*.java" including="plugin.xml|plugin.properties|icons/**" path="." kind="src"/>
+  <classpathentry path="src/main/java" kind="src"/>
+  <classpathentry excluding="**/*.java" path="src/main/resources" kind="src"/>
+  <classpathentry path="src/test/java" output="target/test-classes" kind="src"/>
+  <classpathentry excluding="**/*.java" path="src/test/resources" output="target/test-classes" kind="src"/>
+  <classpathentry path="target/classes" kind="output"/>
+  <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+  <classpathentry path="org.eclipse.pde.core.requiredPlugins" kind="con"/>
+  <classpathentry sourcepath="M2_REPO/junit/junit/3.8.2/junit-3.8.2-sources.jar" path="M2_REPO/junit/junit/3.8.2/junit-3.8.2.jar" kind="var">
     <attributes>
-      <attribute value="jar:file:/C:/Users/Joachim%20Kainz/.m2/repository/junit/junit/3.8.2/junit-3.8.2-javadoc.jar!/" name="javadoc_location"/>
+      <attribute name="javadoc_location" value="jar:file:/C:/Users/Joachim%20Kainz/.m2/repository/junit/junit/3.8.2/junit-3.8.2-javadoc.jar!/"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/org/osgi/osgi_R4_compendium/1.0/osgi_R4_compendium-1.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/osgi/osgi_R4_core/1.0/osgi_R4_core-1.0.jar"/>
+  <classpathentry path="M2_REPO/org/osgi/osgi_R4_compendium/1.0/osgi_R4_compendium-1.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/osgi/osgi_R4_core/1.0/osgi_R4_core-1.0.jar" kind="var"/>
+  <classpathentry path="target/pax-eclipse" exported="true" kind="lib"/>
 </classpath>
