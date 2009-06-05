@@ -35,32 +35,31 @@
     <module>dependencies</module>
     <module>plugins</module>
   </modules>
-
-	<developers>
-		<developer>
-			<id>joachim.kainz</id>
-			<name>Joachim Kainz</name>
-			<email>jfk@jolira.com</email>
-			<roles>
-				<role>Developer</role>
-			</roles>
-			<timezone>-8</timezone>
-		</developer>
-		<developer>
-			<id>gabe.hopper</id>
-			<name>Gabriel Hopper</name>
-			<email>gabe@jolira.com</email>
-			<roles>
-				<role>Developer</role>
-			</roles>
-			<timezone>-8</timezone>
-		</developer>
-	</developers>
-	<scm>
-		<connection>scm:svn:https://enzian.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://enzian.googlecode.com/svn/trunk/</developerConnection>
-		<url>https://enzian.googlecode.com/svn/trunk/</url>
-	</scm>
+  <developers>
+    <developer>
+      <id>joachim.kainz</id>
+      <name>Joachim Kainz</name>
+      <email>jfk@jolira.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+    <developer>
+      <id>gabe.hopper</id>
+      <name>Gabriel Hopper</name>
+      <email>gabe@jolira.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:svn:https://enzian.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://enzian.googlecode.com/svn/trunk/</developerConnection>
+    <url>https://enzian.googlecode.com/svn/trunk/</url>
+  </scm>
   <build>
     <plugins>
       <plugin>
@@ -109,4 +108,14 @@
       </plugin>
     </plugins>
   </reporting>
+  <repositories>
+    <repository>
+      <id>ops4j.releases</id>
+      <name>The OPS4J Release Repository</name>
+      <url>http://repository.ops4j.org/mvn-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 </project>
