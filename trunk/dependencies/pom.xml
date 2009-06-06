@@ -11,7 +11,7 @@
   <groupId>com.jolira.enzian.dependencies</groupId>
   <artifactId>dependencies</artifactId>
 
-  <name></name>
+  <name>enzian - dependencies</name>
 
   <packaging>pom</packaging>
 

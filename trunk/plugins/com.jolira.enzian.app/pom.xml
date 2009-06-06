@@ -24,6 +24,11 @@
 
   <dependencies>
     <dependency>
+     <groupId>com.jolira.enzian.dependencies</groupId>
+     <artifactId>org.apache.wicket</artifactId>
+     <version>1.4-rc4-001-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <type>pom</type>
       <groupId>${parent.groupId}</groupId>
       <artifactId>provision</artifactId>
