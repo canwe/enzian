@@ -10,9 +10,7 @@
     <license>
       <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
       <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
-      <comments>
-      Copyright (C) 2009 jolira 46 Promontory Dr. Richmond, CA 94804
-      </comments>
+      <comments>Copyright (C) 2009 jolira 46 Promontory Dr. Richmond, CA 94804</comments>
     </license>
   </licenses>
 
@@ -22,7 +20,8 @@
   <version>0.0.1-SNAPSHOT</version>
 
   <name>com.jolira.enzian</name>
-  <description>A Plugin-based Web Application &amp; Framework</description>
+
+  <description>A Plugin-based Web Application  Framework</description>
 
   <properties>
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
@@ -51,13 +50,13 @@
       <timezone>-8</timezone>
     </developer>
   </developers>
-  
+
   <scm>
     <connection>scm:svn:https://enzian.googlecode.com/svn/trunk</connection>
     <developerConnection>scm:svn:https://enzian.googlecode.com/svn/trunk/</developerConnection>
     <url>https://enzian.googlecode.com/svn/trunk/</url>
   </scm>
-  
+
   <modules>
     <module>poms</module>
     <module>provision</module>
@@ -116,12 +115,19 @@
       </plugin>
     </plugins>
   </reporting>
-  
+
   <repositories>
     <repository>
       <id>ops4j.releases</id>
       <name>The OPS4J Release Repository</name>
       <url>http://repository.ops4j.org/mvn-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ops4j.snapshots</id>
+      <url>http://repository.ops4j.org/mvn-snapshots</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
