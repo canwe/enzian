@@ -62,7 +62,6 @@
           <additionalBuildcommands>
             <buildCommand>
               <name>net.sourceforge.pmd.eclipse.plugin.pmdBuilder</name>
-              <triggers>auto,full,incremental,</triggers>
             </buildCommand>
           </additionalBuildcommands>
         </configuration>
