@@ -55,6 +55,18 @@
           </instructions>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <configuration>
+          <additionalBuildcommands>
+            <buildCommand>
+              <name>net.sourceforge.pmd.eclipse.plugin.pmdBuilder</name>
+              <triggers>auto,full,incremental,</triggers>
+            </buildCommand>
+          </additionalBuildcommands>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
