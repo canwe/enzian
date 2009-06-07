@@ -12,13 +12,13 @@
     <bundle.symbolicName>junit</bundle.symbolicName>
     <wrapped.groupId>junit</wrapped.groupId>
     <wrapped.artifactId>junit</wrapped.artifactId>
-    <wrapped.version>3.8.1</wrapped.version>
+    <wrapped.version>4.6</wrapped.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.dependencies</groupId>
   <artifactId>junit</artifactId>
-  <version>3.8.1-001-SNAPSHOT</version>
+  <version>4.6-001-SNAPSHOT</version>
 
   <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 

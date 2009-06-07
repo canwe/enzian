@@ -16,9 +16,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>org.apache.wicket</module>
     <module>junit</module>
-    <module>javax.servlet.api</module>
   </modules>
 
 </project>
