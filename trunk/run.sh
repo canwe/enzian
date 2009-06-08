@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./build.sh
+mvn install
 pax-provision
 

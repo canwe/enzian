@@ -16,7 +16,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>junit</module>
+    <module>wicket-guice</module>
   </modules>
 
 </project>
