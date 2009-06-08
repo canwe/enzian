@@ -16,8 +16,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>com.jolira.enzian.app</module>
     <module>org.apache.wicket.guice</module>
+    <module>com.jolira.enzian.app</module>
   </modules>
 
 </project>
