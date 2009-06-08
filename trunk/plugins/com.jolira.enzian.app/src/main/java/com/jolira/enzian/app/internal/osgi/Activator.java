@@ -15,6 +15,7 @@ import javax.servlet.Filter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.wicket.protocol.http.WebApplication;
 import org.ops4j.pax.web.service.WebContainer;
 import org.ops4j.peaberry.Import;
 import org.ops4j.peaberry.builders.DecoratedServiceBuilder;
@@ -32,7 +33,9 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.Stage;
+import com.google.inject.binder.AnnotatedBindingBuilder;
 import com.jolira.enzian.app.guice.EnzianWebApplicationFactory;
+import com.jolira.enzian.app.internal.EnzianAppliationImpl;
 import com.jolira.enzian.app.internal.EnzianFilter;
 
 /**
@@ -45,7 +48,7 @@ public final class Activator implements BundleActivator {
 
   @Inject
   private transient WebContainer webContainer;
-  protected Injector injector;
+  protected Injector injector = null;
   private transient final Filter wicketFilter = new EnzianFilter() {
     @Override
     public Injector getInjector() {
@@ -133,8 +136,12 @@ public final class Activator implements BundleActivator {
 
         final ServiceBuilder<WebContainer> out = service.out(watcher);
         final ProxyProvider<WebContainer> single = out.single();
+        final EnzianAppliationImpl app = new EnzianAppliationImpl();
+        final AnnotatedBindingBuilder<WebContainer> containerBind = bind(WebContainer.class);
+        final AnnotatedBindingBuilder<WebApplication> appBinder = bind(WebApplication.class);
 
-        bind(WebContainer.class).toProvider(single);
+        appBinder.toInstance(app);
+        containerBind.toProvider(single);
       }
     };
 
