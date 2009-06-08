@@ -129,7 +129,7 @@
       <id>ops4j.snapshots</id>
       <url>http://repository.ops4j.org/mvn-snapshots</url>
       <snapshots>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>

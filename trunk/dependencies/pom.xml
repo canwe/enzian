@@ -17,6 +17,12 @@
 
   <modules>
     <module>wicket-guice</module>
+    <module>junit</module>
+    <module>cglib</module>
+    <module>asm-util</module>
+    <module>asm-analysis</module>
+    <module>asm-tree</module>
+    <module>asm</module>
   </modules>
 
 </project>
