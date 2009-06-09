@@ -84,7 +84,7 @@ public final class Activator implements BundleActivator {
         final boolean value = defaultContext.handleSecurity(request, response);
 
         // TODO: Remove
-        LOG.info("HttpContext.getResource(" + request + ", "+ response + " ) returned: " + value);
+        LOG.info("HttpContext.handleSecurity(" + request + ", "+ response + " ) returned: " + value);
 
         return value;
       }
@@ -118,7 +118,9 @@ public final class Activator implements BundleActivator {
           protected WebContainer adding(final Import<WebContainer> svc) {
             // the returned object is used in the modified and removed calls
             final WebContainer instance = svc.get();
+
             register(instance);
+
             return instance;
           }
 
