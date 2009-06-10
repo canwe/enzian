@@ -1,0 +1,94 @@
+#summary One-sentence summary of this page.
+
+= Quick Start: developer guide for building and running enzian =
+
+
+== Prerequisites ==
+
+  * Maven 2 - [http://maven.apache.org/download.html download]
+  * Pax Construct - [http://repo1.maven.org/maven2/org/ops4j/pax/construct/scripts/1.4/scripts-1.4.zip download scripts] and unzip to your hard drive. Add `bin` directory to system path.
+
+== Build and Run enzian ==
+
+  # [http://code.google.com/p/enzian/source/checkout Checkout source] to working directory.
+  # From command prompt, navigate to `enzian` directory under working directory.
+  # Run maven build
+{{{
+enzian% mvn install
+[INFO]
+[INFO] Scanning for projects...
+[INFO] Reactor build order: 
+[INFO]   com.jolira.enzian
+
+...
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+
+}}}
+  # Now that the project has been build and installed in the local Maven repository, run OSGi platform by running `pax-provision` from the `enzian` directory under the working directory.
+{{{
+enzian$ pax-provision
+[INFO] Reactor build order: 
+[INFO]   com.jolira.enzian
+[INFO]   enzian - plugin configuration
+[INFO]   enzian - wrapper instructions
+[INFO]   enzian - bundle instructions
+[INFO]   enzian - imported bundles
+[INFO]   junit 3.8.2 [osgi]
+[INFO]   asm 3.1 [osgi]
+[INFO]   cglib 2.2 [osgi]
+[INFO]   asm-tree 3.1 [osgi]
+[INFO]   asm-util 3.1 [osgi]
+[INFO]   asm-analysis 3.1 [osgi]
+[INFO]   enzian - dependencies
+[INFO]   org.apache.wicket.guice
+[INFO]   com.jolira.enzian.app
+[INFO]   enzian - plugins
+[INFO] ------------------------------------------------------------------------
+[INFO] Building com.jolira.enzian
+[INFO]    task-segment: [org.ops4j:maven-pax-plugin:1.4:provision] (aggregator-style)
+[INFO] ------------------------------------------------------------------------
+
+...
+
+353 [FelixStartLevel] INFO org.apache.wicket.protocol.http.WebApplication - [EnzianAppliationImpl] Started Wicket version 1.4-rc4 in development mode
+********************************************************************
+*** WARNING: Wicket is running in DEVELOPMENT mode.              ***
+***                               ^^^^^^^^^^^                    ***
+*** Do NOT deploy to your live server(s) without changing this.  ***
+*** See Application#getConfigurationType() for more information. ***
+********************************************************************
+}}}
+  # To list the installed bundles when running within the Felix platform enter `ps` at the prompt.
+{{{
+enzian% ps
+START LEVEL 6
+   ID   State         Level  Name
+[   0] [Active     ] [    0] System Bundle (1.8.0)
+[   1] [Active     ] [    5] OPS4J Pax Web - Web Container (0.6.0)
+[   2] [Active     ] [    5] Jetty Server (6.1.16)
+[   3] [Active     ] [    5] Jetty Utilities (6.1.16)
+[   4] [Active     ] [    5] Servlet Specification API (2.5)
+[   5] [Active     ] [    5] peaberry (1.1.1.v698)
+[   6] [Active     ] [    5] guice (2.0)
+[   7] [Active     ] [    5] slf4j-simple (1.3.1)
+[   8] [Active     ] [    5] Wicket (1.4.0.rc4)
+[   9] [Active     ] [    5] Wicket IoC common code (1.4.0.rc4)
+[  10] [Active     ] [    5] slf4j-api (1.3.1)
+[  11] [Active     ] [    5] aopalliance (0)
+[  12] [Active     ] [    5] junit 3.8.2 [osgi] (3.8.2)
+[  13] [Active     ] [    5] asm 3.1 [osgi] (3.1)
+[  14] [Active     ] [    5] cglib 2.2 [osgi] (2.2)
+[  15] [Active     ] [    5] asm-tree 3.1 [osgi] (3.1)
+[  16] [Active     ] [    5] asm-util 3.1 [osgi] (3.1)
+[  17] [Active     ] [    5] asm-analysis 3.1 [osgi] (3.1)
+[  18] [Active     ] [    5] org.apache.wicket.guice (1.4.0.rc4p1)
+[  19] [Active     ] [    5] com.jolira.enzian.app (0.0.1.SNAPSHOT)
+[  20] [Active     ] [    1] osgi.compendium (4.1.0.build-200702212030)
+[  21] [Active     ] [    1] Apache Felix Shell Service (1.2.0)
+[  22] [Active     ] [    1] Apache Felix Shell TUI (1.2.0)
+}}}
+
+ 
