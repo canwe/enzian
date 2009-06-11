@@ -12,6 +12,11 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import javax.servlet.Filter;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -53,6 +58,31 @@ public final class Activator implements BundleActivator {
     @Override
     public Injector getInjector() {
       return injector;
+    }
+  };
+
+  private final Servlet dummyServlet = new Servlet(){
+    public void destroy() {
+      LOG.info("Servlet.destroy()");
+    }
+
+    public ServletConfig getServletConfig() {
+      LOG.info("Servlet.getServletConfig()");
+      return null;
+    }
+
+    public String getServletInfo() {
+      LOG.info("Servlet.getServletInfo()");
+      return null;
+    }
+
+    public void init(final ServletConfig arg0) throws ServletException {
+      LOG.info("Servlet.init(..)");
+    }
+
+    public void service(final ServletRequest arg0, final ServletResponse arg1)
+    throws ServletException, IOException {
+      LOG.info("Servlet.service(..)");
     }
   };
 
@@ -99,7 +129,15 @@ public final class Activator implements BundleActivator {
 
     filterParams.put("applicationFactoryClassName", APP_FACTORY_CLASS_NAME);
 
-    container.registerFilter(wicketFilter, new String[] {"/*"}, null, filterParams, httpContext);
+    final String[] as = new String[] {"/", "/*"};
+
+    container.registerFilter(wicketFilter, as, null, filterParams, httpContext);
+
+    try {
+      container.registerServlet(dummyServlet, as, new Hashtable<String, String>(), httpContext);
+    } catch (final ServletException e) {
+      LOG.error("Error registering dummy sevlet", e);
+    }
   }
 
   /**
@@ -135,7 +173,6 @@ public final class Activator implements BundleActivator {
             unregister(instance);
           }
         };
-
         final ServiceBuilder<WebContainer> out = service.out(watcher);
         final ProxyProvider<WebContainer> single = out.single();
         final EnzianAppliationImpl app = new EnzianAppliationImpl();
@@ -166,6 +203,7 @@ public final class Activator implements BundleActivator {
   protected void unregister(final WebContainer container) {
     LOG.info("unregistering " + container);
 
+    container.unregisterServlet(dummyServlet);
     container.unregisterFilter(wicketFilter);
 
     injector = null;
