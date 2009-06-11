@@ -1,0 +1,1 @@
+See http://www.springone2gx.com/blog/craig_walls/2009/04/pax_construct_from_zero_to_osgi.html for an introduction to PAX-CONSTRUCT.
