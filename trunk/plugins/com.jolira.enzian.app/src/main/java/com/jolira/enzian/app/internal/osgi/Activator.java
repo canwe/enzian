@@ -1,7 +1,7 @@
 package com.jolira.enzian.app.internal.osgi;
 
 import static com.google.inject.Guice.createInjector;
-import static com.google.inject.Stage.DEVELOPMENT;
+import static com.google.inject.Stage.PRODUCTION;
 import static org.ops4j.peaberry.Peaberry.osgiModule;
 import static org.ops4j.peaberry.Peaberry.service;
 
@@ -47,13 +47,32 @@ import com.jolira.enzian.app.internal.EnzianFilter;
  * Extension of the default OSGi bundle activator
  */
 public final class Activator implements BundleActivator {
+  private static final String MODE_PROPERTY = "com.jolira.enzian.app.mode";
   private static final String APP_FACTORY_CLASS_NAME = EnzianWebApplicationFactory.class.getName();
-  private static final Integer SESSION_TIMEOUT = Integer.valueOf(15); // TODO
   protected static final Logger LOG = LoggerFactory.getLogger(Activator.class);
+
+  private static Stage getInjectorMode(final BundleContext context) {
+    final String mode = getMode(context);
+
+    if (mode == null || mode.isEmpty()) {
+      return PRODUCTION;
+    }
+
+    final String upperMode = mode.toUpperCase();
+    final Stage stage = Stage.valueOf(upperMode);
+
+    return stage == null ? PRODUCTION : stage;
+  }
+
+  private static String getMode(final BundleContext context) {
+    return context.getProperty(MODE_PROPERTY);
+  }
 
   @Inject
   private transient WebContainer webContainer;
+
   protected Injector injector = null;
+
   private transient final Filter wicketFilter = new EnzianFilter() {
     @Override
     public Injector getInjector() {
@@ -63,39 +82,49 @@ public final class Activator implements BundleActivator {
 
   private final Servlet dummyServlet = new Servlet(){
     public void destroy() {
-      LOG.info("Servlet.destroy()");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Servlet.destroy()");
+      }
     }
 
     public ServletConfig getServletConfig() {
-      LOG.info("Servlet.getServletConfig()");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Servlet.getServletConfig()");
+      }
       return null;
     }
 
     public String getServletInfo() {
-      LOG.info("Servlet.getServletInfo()");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Servlet.getServletInfo()");
+      }
       return null;
     }
 
     public void init(final ServletConfig arg0) throws ServletException {
-      LOG.info("Servlet.init(..)");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Servlet.init(..)");
+      }
     }
 
-    public void service(final ServletRequest arg0, final ServletResponse arg1)
-    throws ServletException, IOException {
-      LOG.info("Servlet.service(..)");
+    public void service(final ServletRequest req, final ServletResponse resp) throws ServletException, IOException {
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Servlet.service(..)");
+      }
     }
   };
 
-  protected void register(final WebContainer container) {
-    LOG.info("registering " + container);
+  protected void register(final WebContainer container, final BundleContext context) {
+    LOG.info("registering " + container + " for " + context);
 
     final HttpContext defaultContext = container.createDefaultHttpContext();
     final HttpContext httpContext = new HttpContext() {
       public String getMimeType(final String name) {
         final String value = defaultContext.getMimeType(name);
 
-        // TODO: Remove
-        LOG.info("HttpContext.getMimeType(\"" + name + "\") returned: " + value);
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("HttpContext.getMimeType(\"" + name + "\") returned: " + value);
+        }
 
         return value;
       }
@@ -103,9 +132,9 @@ public final class Activator implements BundleActivator {
       public URL getResource(final String name) {
         final URL value = defaultContext.getResource(name);
 
-        // TODO: Remove
-        LOG.info("HttpContext.getResource(\"" + name + "\") returned: " + value);
-
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("HttpContext.getResource(\"" + name + "\") returned: " + value);
+        }
         return value;
       }
 
@@ -113,23 +142,26 @@ public final class Activator implements BundleActivator {
           final HttpServletResponse response) throws IOException {
         final boolean value = defaultContext.handleSecurity(request, response);
 
-        // TODO: Remove
-        LOG.info("HttpContext.handleSecurity(" + request + ", "+ response + " ) returned: " + value);
-
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("HttpContext.handleSecurity(" + request + ", "+ response + " ) returned: " + value);
+        }
         return value;
       }
     };
     final Dictionary<String,String> containerParams = new Hashtable<String, String>();
+    final String mode = getMode(context);
 
-    containerParams.put("configuration" , "development"); // TODO
+    if (mode != null && !mode.isEmpty()) {
+      containerParams.put("configuration" , mode);
+    }
+
     container.setContextParam(containerParams, httpContext);
-    container.setSessionTimeout(SESSION_TIMEOUT, httpContext);
 
     final Dictionary<String,String> filterParams = new Hashtable<String, String>();
 
     filterParams.put("applicationFactoryClassName", APP_FACTORY_CLASS_NAME);
 
-    final String[] as = new String[] {"/", "/*"};
+    final String[] as = new String[] {"/*"};
 
     container.registerFilter(wicketFilter, as, null, filterParams, httpContext);
 
@@ -157,7 +189,7 @@ public final class Activator implements BundleActivator {
             // the returned object is used in the modified and removed calls
             final WebContainer instance = svc.get();
 
-            register(instance);
+            register(instance, context);
 
             return instance;
           }
@@ -165,7 +197,7 @@ public final class Activator implements BundleActivator {
           @Override
           protected void modified(final WebContainer instance, final Map<String, ?> attributes) {
             unregister(instance);
-            register(instance);
+            register(instance, context);
           }
 
           @Override
@@ -184,7 +216,9 @@ public final class Activator implements BundleActivator {
       }
     };
 
-    final Stage stage = DEVELOPMENT; // TODO: should be configurable
+    final Stage stage = getInjectorMode(context);
+
+    LOG.info("creating an injector with mode " + stage);
 
     injector = createInjector(stage, osgiModule, importModule);
 
