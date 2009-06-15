@@ -17,7 +17,7 @@
 
   <modules>
     <module>org.apache.wicket.guice</module>
-    <module>com.jolira.enzian.app</module>
+    <module>com.jolira.enzian.application</module>
   </modules>
 
 </project>
