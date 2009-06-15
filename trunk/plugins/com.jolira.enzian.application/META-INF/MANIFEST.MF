@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Export-Package: com.jolira.enzian.app;uses:="org.apache.wicket.protoco
+ l.http,org.apache.wicket.markup.html";version="0.0.1.SNAPSHOT",com.jo
+ lira.enzian.app.guice;uses:="org.apache.wicket.protocol.http,org.apac
+ he.wicket,org.apache.wicket.guice,org.apache.wicket.application,com.g
+ oogle.inject";version="0.0.1.SNAPSHOT"
+Private-Package: com.jolira.enzian.app.internal,com.jolira.enzian.app.
+ internal.osgi
+Ignore-Package: com.jolira.enzian.app.internal.osgi,com.jolira.enzian.
+ app.internal
+Built-By: gabe
+Tool: Bnd-0.0.255
+Bundle-Name: com.jolira.enzian.app
+Created-By: Apache Maven Bundle Plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: jolira
+Build-Jdk: 1.6.0_07
+Bundle-Version: 0.0.1.SNAPSHOT
+Bnd-LastModified: 1245105384939
+Bundle-Activator: com.jolira.enzian.app.internal.osgi.Activator
+Bundle-ManifestVersion: 2
+Bundle-Description: A Plugin-based Web Application  Framework
+Bundle-License: http://www.gnu.org/licenses/gpl-3.0.txt
+Import-Package: com.google.inject;version="1.2",com.google.inject.bind
+ er;version="1.2",com.jolira.enzian.app;version="0.0.1.SNAPSHOT",com.j
+ olira.enzian.app.guice;version="0.0.1.SNAPSHOT",javax.servlet;version
+ ="2.5",javax.servlet.http;version="2.5",org.apache.wicket;version="1.
+ 4.0.rc4",org.apache.wicket.application;version="1.4.0.rc4",org.apache
+ .wicket.guice;version="1.4.0.rc4p1",org.apache.wicket.markup.html;ver
+ sion="1.4.0.rc4",org.apache.wicket.protocol.http;version="1.4.0.rc4",
+ org.ops4j.pax.web.service,org.ops4j.peaberry,org.ops4j.peaberry.build
+ ers,org.ops4j.peaberry.util,org.osgi.framework,org.osgi.service.http,
+ org.slf4j;version="1.3"
+Bundle-SymbolicName: com.jolira.enzian.app
+Bundle-DocURL: http://jolira.com
+
