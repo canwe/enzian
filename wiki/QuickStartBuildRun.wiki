@@ -92,6 +92,7 @@ START LEVEL 6
 {{{
 Hello!
 }}}
+  # For additional commands enter `help` at the prompt or `shutdown` to terminate the application.
 
 ==IDE Setup Guides ===
   * Eclipse
