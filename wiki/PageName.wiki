@@ -1,0 +1,16 @@
+= Eclipse Setup Guide =
+This guide assumes that you have followed the [QuickStartBuildRun Quick Start Guide].
+
+== Requirements ==
+  * Eclipse
+  * [http://download.eclipse.org/equinox/ Equinox SDK]
+  * 
+
+== Create Eclipse Project ==
+  # Run pax maven plugin to create project files.
+{{{
+cd plugins/com.jolira.enzian.application
+mvn pax:eclipse
+}}}
+  # Start Eclipse and open the working directory as your workspace. 
+  # Select `File > Import...` and type filter text `Existing Projects into Workspace` and click Finish button.
