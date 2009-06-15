@@ -88,5 +88,11 @@ START LEVEL 6
 [  21] [Active     ] [    1] Apache Felix Shell Service (1.2.0)
 [  22] [Active     ] [    1] Apache Felix Shell TUI (1.2.0)
 }}}
+  # Test to make sure site is up and running navigate to [http://localhost:8080/]. If the application is running you should see the following:
+{{{
+Hello!
+}}}
 
+==IDE Setup Guides ===
+  * Eclipse
  
