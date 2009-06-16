@@ -14,3 +14,10 @@ mvn pax:eclipse
 }}}
   # Start Eclipse and open the working directory as your workspace. 
   # Select `File > Import...` and type filter text `Existing Projects into Workspace` and click Finish button.
+  # Click Browse.. button next to Select root directory, then choose the plugins directory. The `com.jolira.enzian.application directory` will show up and click the Finish button.
+
+== Set Target ==
+  # Open eclipse Preferences.
+  # Enter `target` in the 'type filter text' area and select `Target Platform`
+  # Select `Browse...` button to select Target Platform Location and select the location of the installed [http://download.eclipse.org/equinox/ Equinox SDK].
+  # Cleaning project workspace may be necessary.
