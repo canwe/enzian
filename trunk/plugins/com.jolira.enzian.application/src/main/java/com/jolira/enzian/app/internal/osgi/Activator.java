@@ -54,7 +54,7 @@ public final class Activator implements BundleActivator {
   private static Stage getInjectorMode(final BundleContext context) {
     final String mode = getMode(context);
 
-    if (mode == null || mode.isEmpty()) {
+    if (mode == null || mode.length() < 1) {
       return PRODUCTION;
     }
 
@@ -151,7 +151,7 @@ public final class Activator implements BundleActivator {
     final Dictionary<String,String> containerParams = new Hashtable<String, String>();
     final String mode = getMode(context);
 
-    if (mode != null && !mode.isEmpty()) {
+    if (mode != null && mode.length() < 1) {
       containerParams.put("configuration" , mode);
     }
 
