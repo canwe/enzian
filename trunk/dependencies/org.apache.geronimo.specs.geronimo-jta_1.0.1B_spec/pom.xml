@@ -9,16 +9,16 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>cglib</bundle.symbolicName>
-    <wrapped.groupId>cglib</wrapped.groupId>
-    <wrapped.artifactId>cglib</wrapped.artifactId>
-    <wrapped.version>2.1_3</wrapped.version>
+    <bundle.symbolicName>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</bundle.symbolicName>
+    <wrapped.groupId>org.apache.geronimo.specs</wrapped.groupId>
+    <wrapped.artifactId>geronimo-jta_1.0.1B_spec</wrapped.artifactId>
+    <wrapped.version>1.1.1</wrapped.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.dependencies</groupId>
-  <artifactId>cglib</artifactId>
-  <version>2.1_3-001-SNAPSHOT</version>
+  <artifactId>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</artifactId>
+  <version>1.1.1-001-SNAPSHOT</version>
 
   <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 
@@ -30,12 +30,6 @@
       <artifactId>${wrapped.artifactId}</artifactId>
       <version>${wrapped.version}</version>
       <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>com.jolira.enzian.dependencies</groupId>
-      <artifactId>asm</artifactId>
-      <version>1.5.3-001-SNAPSHOT</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 

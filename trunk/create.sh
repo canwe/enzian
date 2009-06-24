@@ -20,6 +20,8 @@ pax-import-bundle -g org.slf4j                       -a slf4j-api      -v 1.3.1 
 pax-import-bundle -g org.slf4j                       -a slf4j-simple   -v 1.3.1        -- -DwidenScope -DimportTransitive
 
 # pax-wrap-jar    -g javax.servlet -a servlet-api -v 2.5    -- -DwrapTransitive "-DtargetDirectory=dependencies"
+pax-wrap-jar -g org.apache.geronimo.specs -a geronimo-jta_1.0.1B_spec -v 1.1.1 -- -DwrapTransitive "-DtargetDirectory=dependencies"
+pax-wrap-jar    -g org.hibernate -a hibernate -v 3.2.6.ga    -- -DwrapTransitive "-DtargetDirectory=dependencies"
 
 pax-create-bundle -p com.jolira.enzian.app -v 0.0.1-SNAPSHOT -- -DwrapTransitive "-DtargetDirectory=plugins"
 

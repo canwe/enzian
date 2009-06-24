@@ -9,16 +9,16 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>cglib</bundle.symbolicName>
-    <wrapped.groupId>cglib</wrapped.groupId>
-    <wrapped.artifactId>cglib</wrapped.artifactId>
-    <wrapped.version>2.1_3</wrapped.version>
+    <bundle.symbolicName>net.sf.ehcache</bundle.symbolicName>
+    <wrapped.groupId>net.sf.ehcache</wrapped.groupId>
+    <wrapped.artifactId>ehcache</wrapped.artifactId>
+    <wrapped.version>1.2.3</wrapped.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.dependencies</groupId>
-  <artifactId>cglib</artifactId>
-  <version>2.1_3-001-SNAPSHOT</version>
+  <artifactId>net.sf.ehcache</artifactId>
+  <version>1.2.3-001-SNAPSHOT</version>
 
   <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 
@@ -33,8 +33,14 @@
     </dependency>
     <dependency>
       <groupId>com.jolira.enzian.dependencies</groupId>
-      <artifactId>asm</artifactId>
-      <version>1.5.3-001-SNAPSHOT</version>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4-001-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.jolira.enzian.dependencies</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>2.1.1-001-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

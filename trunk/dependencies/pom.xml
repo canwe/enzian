@@ -17,11 +17,21 @@
 
   <modules>
     <module>junit</module>
-    <module>cglib</module>
     <module>asm-util</module>
     <module>asm-analysis</module>
     <module>asm-tree</module>
+    <module>org.hibernate</module>
+    <module>net.sf.ehcache</module>
+    <module>commons-logging</module>
+    <module>asm-attrs</module>
+    <module>dom4j</module>
+    <module>antlr</module>
+    <module>cglib</module>
     <module>asm</module>
+    <module>commons-collections</module>
+    <module>ant</module>
+    <module>xml-apis</module>
+    <module>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</module>
   </modules>
 
 </project>
