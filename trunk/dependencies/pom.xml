@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="CP1252"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <parent>
     <groupId>com.jolira.enzian</groupId>
@@ -20,8 +20,10 @@
     <module>asm-util</module>
     <module>asm-analysis</module>
     <module>asm-tree</module>
+    <module>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</module>
     <module>org.hibernate</module>
     <module>net.sf.ehcache</module>
+    <module>javax.transaction.jta</module>
     <module>commons-logging</module>
     <module>asm-attrs</module>
     <module>dom4j</module>
@@ -31,7 +33,6 @@
     <module>commons-collections</module>
     <module>ant</module>
     <module>xml-apis</module>
-    <module>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</module>
   </modules>
 
 </project>
