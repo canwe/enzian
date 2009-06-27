@@ -33,8 +33,8 @@
     </dependency>
     <dependency>
       <groupId>com.jolira.enzian.dependencies</groupId>
-      <artifactId>asm</artifactId>
-      <version>3.1-001-SNAPSHOT</version>
+      <artifactId>asm-1.5.3</artifactId>
+      <version>001-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
