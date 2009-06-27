@@ -12,13 +12,13 @@
     <bundle.symbolicName>asm</bundle.symbolicName>
     <wrapped.groupId>asm</wrapped.groupId>
     <wrapped.artifactId>asm</wrapped.artifactId>
-    <wrapped.version>1.5.3</wrapped.version>
+    <wrapped.version>3.1</wrapped.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.dependencies</groupId>
   <artifactId>asm</artifactId>
-  <version>1.5.3-001-SNAPSHOT</version>
+  <version>3.1-001-SNAPSHOT</version>
 
   <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 
