@@ -17,6 +17,7 @@
 
   <modules>
     <module>junit</module>
+    <module>asm</module>
     <module>asm-util</module>
     <module>asm-analysis</module>
     <module>asm-tree</module>
@@ -28,7 +29,6 @@
     <module>dom4j</module>
     <module>antlr</module>
     <module>cglib</module>
-    <module>asm</module>
     <module>commons-collections</module>
     <module>ant</module>
     <module>xml-apis</module>
