@@ -154,6 +154,14 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>jboss.release</id>
+      <name>The JBoss Release Repository</name>
+      <url>https://repository.jboss.org/maven2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
   </repositories>
 
 </project>
