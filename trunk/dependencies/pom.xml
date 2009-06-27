@@ -17,9 +17,9 @@
 
   <modules>
     <module>junit</module>
+    <module>asm</module>
     <module>asm-1.5.3</module>
     <module>asm-attrs</module>
-    <module>asm-3.1</module>
     <module>asm-util</module>
     <module>asm-analysis</module>
     <module>asm-tree</module>
