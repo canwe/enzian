@@ -56,11 +56,6 @@
 		<artifactId>org.hibernate.entitymanager</artifactId>
 		<version>3.4.0.GA-001-SNAPSHOT</version>
 	</dependency>
-	<dependency>
-		<groupId>com.jolira.enzian.plugins</groupId>
-		<artifactId>com.jolira.enzian.guice</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
   </dependencies>
   
 
