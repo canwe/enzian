@@ -10,8 +10,8 @@
 
   <properties>
     <bundle.symbolicName>javax.security.jacc</bundle.symbolicName>
-    <wrapped.groupId>javax.security</wrapped.groupId>
-    <wrapped.artifactId>jacc</wrapped.artifactId>
+    <wrapped.groupId>org.apache.geronimo.specs</wrapped.groupId>
+    <wrapped.artifactId>geronimo-j2ee-jacc_1.0_spec</wrapped.artifactId>
     <wrapped.version>1.0</wrapped.version>
   </properties>
 

@@ -57,12 +57,6 @@
     </dependency>
     <dependency>
       <groupId>com.jolira.enzian.dependencies</groupId>
-      <artifactId>javax.security.jaas</artifactId>
-      <version>1.0.01-001-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.jolira.enzian.dependencies</groupId>
       <artifactId>javax.security.jacc</artifactId>
       <version>1.0-001-SNAPSHOT</version>
       <scope>provided</scope>

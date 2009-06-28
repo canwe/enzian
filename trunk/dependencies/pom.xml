@@ -39,7 +39,6 @@
     <module>javassist</module>
     <module>antlr</module>
     <module>commons-collections</module>
-    <module>javax.security.jaas</module>
     <module>javax.security.jacc</module>
     <module>ant</module>
     <module>xml-apis</module>
