@@ -23,8 +23,6 @@
   <packaging>bundle</packaging>
 
   <dependencies>
-    <!--
-     | uncomment to add all imported (non-local) bundles to your compilation classpath -->
     <dependency>
       <type>pom</type>
       <groupId>${parent.groupId}</groupId>
@@ -46,17 +44,10 @@
 		<artifactId>org.hibernate</artifactId>
 		<version>3.2.6.ga-001-SNAPSHOT</version>
 	</dependency>
-	<dependency>
-		<groupId>com.jolira.enzian.dependencies</groupId>
-		<artifactId>javax.persistence.api</artifactId>
-		<version>1.0-001-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-		<groupId>com.jolira.enzian.dependencies</groupId>
-		<artifactId>org.hibernate.entitymanager</artifactId>
-		<version>3.4.0.GA-001-SNAPSHOT</version>
-	</dependency>
+    <dependency>
+        <groupId>com.jolira.enzian.dependencies</groupId>
+        <artifactId>javax.persistence.api</artifactId>
+        <version>1.0-001-SNAPSHOT</version>
+    </dependency>
   </dependencies>
-  
-
 </project>
