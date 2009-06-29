@@ -29,7 +29,6 @@
     <module>commons-logging</module>
     <module>cglib</module>
     <module>commons-collections-3.1</module>
-    <module>javax.persistence.api</module>
     <module>org.hibernate.entitymanager</module>
     <module>org.hibernate.ejb3-persistence</module>
     <module>org.hibernate.commons-annotations</module>
