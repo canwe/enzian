@@ -41,6 +41,8 @@
     <module>javax.security.jacc</module>
     <module>ant</module>
     <module>xml-apis</module>
+    <!--<module>hsqldb</module>-->
+    <module>javax.persistence.api</module>
   </modules>
 
 </project>
