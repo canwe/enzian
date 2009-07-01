@@ -43,6 +43,7 @@
     <module>xml-apis</module>
     <!--<module>hsqldb</module>-->
     <module>javax.persistence.api</module>
+    <module>hsqldb</module>
   </modules>
 
 </project>
