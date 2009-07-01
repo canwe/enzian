@@ -19,6 +19,26 @@
     <module>org.apache.wicket.guice</module>
     <module>com.jolira.enzian.application</module>
     <module>com.jolira.enzian.hibernate</module>
+    <module>com.jolira.enzian.jpa.person</module>
   </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-junit4osgi-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <deployprojectartifact>true</deployprojectartifact>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

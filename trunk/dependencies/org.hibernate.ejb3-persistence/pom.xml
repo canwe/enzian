@@ -12,13 +12,13 @@
     <bundle.symbolicName>org.hibernate.ejb3-persistence</bundle.symbolicName>
     <wrapped.groupId>org.hibernate</wrapped.groupId>
     <wrapped.artifactId>ejb3-persistence</wrapped.artifactId>
-    <wrapped.version>1.0.2.GA</wrapped.version>
+    <wrapped.version>3.3.2.Beta1</wrapped.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.dependencies</groupId>
   <artifactId>org.hibernate.ejb3-persistence</artifactId>
-  <version>1.0.2.GA-001-SNAPSHOT</version>
+  <version>3.3.2.Beta1-001-SNAPSHOT</version>
 
   <name>${bundle.symbolicName} ${wrapped.version} [osgi]</name>
 
