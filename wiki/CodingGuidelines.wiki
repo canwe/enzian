@@ -1,16 +1,16 @@
 #summary Suggestions for how to organize any code contributed to this project.
 Our core principals are:
 
-* keep things simple
-* use automation
-* use good style
+  * keep things simple
+  * use automation
+  * use good style
 
 In order to make code formatting easier, please use the following Eclipse configuration files
 (if you are in fact using Eclipse):
 
-* [http://enzian.googlecode.com/svn/wiki/eclipse/formatter.xml formater.xml]: To configure the Eclipse Formatter
-* [http://enzian.googlecode.com/svn/wiki/eclipse/style.xml style.xml]: To configure the Eclipse Code Style
-* [http://enzian.googlecode.com/svn/wiki/eclipse/templates.xml style.xml]: To configure the Eclipse Code Templates
+  * [http://enzian.googlecode.com/svn/wiki/eclipse/formatter.xml formater.xml]: To configure the Eclipse Formatter
+  * [http://enzian.googlecode.com/svn/wiki/eclipse/style.xml style.xml]: To configure the Eclipse Code Style
+  * [http://enzian.googlecode.com/svn/wiki/eclipse/templates.xml style.xml]: To configure the Eclipse Code Templates
 
 = Copyright Notice & Code Ownership =
 
