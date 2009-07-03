@@ -10,48 +10,61 @@
  */
 package com.jolira.enzian.hibernate.internal.osgi;
 
+import static com.google.inject.Guice.createInjector;
 import static org.ops4j.peaberry.Peaberry.osgiModule;
+import static org.ops4j.peaberry.Peaberry.service;
+import static org.ops4j.peaberry.util.TypeLiterals.export;
 
 import javax.persistence.EntityManagerFactory;
 
+import org.ops4j.peaberry.Export;
+import org.ops4j.peaberry.builders.DecoratedServiceBuilder;
+import org.ops4j.peaberry.builders.ExportProvider;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.binder.AnnotatedBindingBuilder;
 import com.jolira.enzian.hibernate.internal.EntityManagerFactoryProxy;
 
 public class Activator implements BundleActivator {
+    @Inject
+    private Export<? extends EntityManagerFactory> emFactory;
 
     @Override
     public void start(final BundleContext context) throws Exception {
+        final Module osgiModule = osgiModule(context);
+        final EntityManagerFactoryProxy proxy = new EntityManagerFactoryProxy();
 
         // Create a Guice Module
         final Module module = new AbstractModule() {
             @Override
             protected void configure() {
                 // Use the Guice Peaberry extension
-                final Module osgiModule = osgiModule(context);
-
                 install(osgiModule);
 
                 // Bind a OSGi service reference in this module
-                final AnnotatedBindingBuilder<EntityManagerFactory> builder = bind(EntityManagerFactory.class);
+                final AnnotatedBindingBuilder<Export<? extends EntityManagerFactory>> builder = bind(export(EntityManagerFactory.class));
+                final DecoratedServiceBuilder<EntityManagerFactoryProxy> proxySvc = service(proxy);
+                final ExportProvider<EntityManagerFactoryProxy> exportedProxySvc = proxySvc
+                        .export();
 
-                builder.to(EntityManagerFactoryProxy.class);
+                builder.toProvider(exportedProxySvc);
 
             }
         };
 
-        Guice.createInjector(module);
+        final Injector injector = createInjector(module);
+
+        injector.injectMembers(this);
+        injector.injectMembers(proxy);
     }
 
     @Override
     public void stop(final BundleContext context) throws Exception {
-        // TODO Auto-generated method stub
-
+        emFactory.unput();
     }
-
 }

@@ -108,10 +108,9 @@ public class EntityManagerFactoryProxy implements EntityManagerFactory,
                         continue;
                     }
 
-                    LOG
-                            .trace(
-                                    "Adding entity class '{}' from bundle '{}' to Hibernate configuration",
-                                    entity, b.getSymbolicName());
+                    LOG.trace("Adding entity class '{}' from bundle '{}' "
+                            + "to Hibernate configuration", entity, b
+                            .getSymbolicName());
                     try {
                         c.addAnnotatedClass(b.loadClass(entity));
                     }
@@ -178,8 +177,8 @@ public class EntityManagerFactoryProxy implements EntityManagerFactory,
                 while (keys.hasMoreElements()) {
                     String key = (String) keys.nextElement();
                     properties.setProperty(key, (String) dic.get(key));
-                    LOG.trace("Setting Hibernate property '{}' to '{}'",
-                            key, dic.get(key));
+                    LOG.trace("Setting Hibernate property '{}' to '{}'", key,
+                            dic.get(key));
                 }
                 factory = null;
                 LOG
