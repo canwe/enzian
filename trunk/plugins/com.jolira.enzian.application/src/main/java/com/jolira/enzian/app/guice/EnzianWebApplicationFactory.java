@@ -26,7 +26,6 @@ import com.jolira.enzian.app.internal.EnzianFilter;
  * @author Joachim Kainz
  */
 public class EnzianWebApplicationFactory implements IWebApplicationFactory {
-
     public WebApplication createApplication(final WicketFilter filter) {
         if (!(filter instanceof EnzianFilter)) {
             throw new IllegalArgumentException("Filter must be a WicketFilter");

@@ -203,6 +203,8 @@ public final class Activator implements BundleActivator {
         final Module importModule = new AbstractModule() {
             @Override
             protected void configure() {
+                install(osgiModule);
+
                 final DecoratedServiceBuilder<WebContainer> service = service(WebContainer.class);
                 final AbstractWatcher<WebContainer> watcher = new AbstractWatcher<WebContainer>() {
                     @Override

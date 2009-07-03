@@ -43,7 +43,6 @@ public class Activator implements BundleActivator {
         final Module module = new AbstractModule() {
             @Override
             protected void configure() {
-                // Use the Guice Peaberry extension
                 install(osgiModule);
 
                 // Bind a OSGi service reference in this module
