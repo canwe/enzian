@@ -18,7 +18,7 @@ import com.jolira.enzian.app.EnzianApplication;
 /**
  * @author Joachim Kainz
  */
-public final class EnzianAppliationImpl extends EnzianApplication {
+public final class EnzianApplicationImpl extends EnzianApplication {
     /**
      * @see EnzianApplication#getHomePage()
      */

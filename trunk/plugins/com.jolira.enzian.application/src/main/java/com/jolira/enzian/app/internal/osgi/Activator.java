@@ -50,7 +50,7 @@ import com.google.inject.Module;
 import com.google.inject.Stage;
 import com.google.inject.binder.AnnotatedBindingBuilder;
 import com.jolira.enzian.app.guice.EnzianWebApplicationFactory;
-import com.jolira.enzian.app.internal.EnzianAppliationImpl;
+import com.jolira.enzian.app.internal.EnzianApplicationImpl;
 import com.jolira.enzian.app.internal.EnzianFilter;
 
 /**
@@ -232,7 +232,7 @@ public final class Activator implements BundleActivator {
                 };
                 final ServiceBuilder<WebContainer> out = service.out(watcher);
                 final ProxyProvider<WebContainer> single = out.single();
-                final EnzianAppliationImpl app = new EnzianAppliationImpl();
+                final EnzianApplicationImpl app = new EnzianApplicationImpl();
                 final AnnotatedBindingBuilder<WebContainer> containerBind = bind(WebContainer.class);
                 final AnnotatedBindingBuilder<WebApplication> appBinder = bind(WebApplication.class);
 

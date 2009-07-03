@@ -35,7 +35,6 @@ import com.jolira.enzian.app.internal.EnzianFilter;
  * @author Joachim F. Kainz
  */
 public class EnzianWebApplicationFactoryTest {
-
     protected abstract class InjectorImplementation implements Injector {
         @Override
         public Injector createChildInjector(
