@@ -43,4 +43,4 @@ Every file in the repository should be marked with a copyright folder that conta
 == Code Organization ==
 
 Every bundle should have a folder that contains all the code that is not exported. The name of the folder
-should be {{{bundlename.internal}}}. All code that references OSGi constructs should be kept in a folder called {{{bundlename.internal}}}. 
+should be {{{bundlename.internal}}}. All code that references OSGi constructs should be kept in a folder called {{{bundlename.internal.osgi}}}. 
