@@ -14,6 +14,41 @@
   <name>enzian - bundle instructions</name>
 
   <packaging>pom</packaging>
+  
+  <properties>
+    <pax-exam-version>0.6.0</pax-exam-version>
+  </properties>
+
+  <dependencies>
+    <!--
+    Pax Exam API:
+    -->
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam</artifactId>
+      <version>${pax-exam-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!--
+    During runtime Pax Exam will discover the OSGi container to use by searching metadata available into classpath.
+    Pax Exam comes with a default container that uses [Pax Runner] for implementing the container requirements:
+    -->
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-container-default</artifactId>
+      <version>${pax-exam-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!--
+    If your test code is based on JUnit you will have to have the Junit support artifact:
+    -->
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-junit</artifactId>
+      <version>${pax-exam-version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <resources>
