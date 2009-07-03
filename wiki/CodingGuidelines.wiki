@@ -1,6 +1,4 @@
 #summary Suggestions for how to organize any code contributed to this project.
-= Coding Guidelines =
-
 Our core principals are:
 
 * keep things simple
@@ -14,7 +12,7 @@ In order to make code formatting easier, please use the following Eclipse config
 * [http://enzian.googlecode.com/svn/wiki/eclipse/style.xml style.xml]: To configure the Eclipse Code Style
 * [http://enzian.googlecode.com/svn/wiki/eclipse/templates.xml style.xml]: To configure the Eclipse Code Templates
 
-== Copyright Notice & Code Ownership ==
+= Copyright Notice & Code Ownership =
 
 This project is free & open-source software. We welcome contributions from anyone. In order to be able to ensure that the software remains free free and open, please make sure you signed and submitted an [http://docs.google.com/View?id=dg66vvmn_32c2f87fdj Individual Contributor License Agreement] before submitting any code.
 
@@ -40,7 +38,7 @@ Every file in the repository should be marked with a copyright folder that conta
  */
 }}}
 
-== Code Organization ==
+= Code Organization =
 
 Every bundle should have a folder that contains all the code that is not exported. The name of the folder
 should be {{{bundlename.internal}}}. All code that references OSGi constructs should be kept in a folder called {{{bundlename.internal.osgi}}}. 
