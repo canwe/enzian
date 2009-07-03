@@ -8,13 +8,10 @@
  * OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.jolira.enzian.app;
+package com.jolira.enzian.hibernate;
 
-import org.apache.wicket.protocol.http.WebApplication;
-
-/**
- * Public API representing an example OSGi service
- */
-public abstract class EnzianApplication extends WebApplication {
-    // TODO
+public interface Dummy {
+    // Makes Maven happy
+    // TODO: Remove when there is another interface or class that can be
+    // exported by this package.
 }

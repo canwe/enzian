@@ -1,3 +1,13 @@
+/**
+ * (C) 2009 jolira (http://www.jolira.com). Licensed under the GNU General
+ * Public License, Version 3.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ * http://www.gnu.org/licenses/gpl-3.0-standalone.html Unless required by
+ * applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+ * OF ANY KIND, either express or implied. See the License for the specific
+ * language governing permissions and limitations under the License.
+ */
 package com.jolira.enzian.app.internal.osgi;
 
 import static com.google.inject.Guice.createInjector;
@@ -47,199 +57,212 @@ import com.jolira.enzian.app.internal.EnzianFilter;
  * Extension of the default OSGi bundle activator
  */
 public final class Activator implements BundleActivator {
-  private static final String MODE_PROPERTY = "com.jolira.enzian.app.mode";
-  private static final String APP_FACTORY_CLASS_NAME = EnzianWebApplicationFactory.class.getName();
-  protected static final Logger LOG = LoggerFactory.getLogger(Activator.class);
+    private static final String MODE_PROPERTY = "com.jolira.enzian.app.mode";
+    private static final String APP_FACTORY_CLASS_NAME = EnzianWebApplicationFactory.class
+            .getName();
+    protected static final Logger LOG = LoggerFactory
+            .getLogger(Activator.class);
 
-  private static Stage getInjectorMode(final BundleContext context) {
-    final String mode = getMode(context);
+    private static Stage getInjectorMode(final BundleContext context) {
+        final String mode = getMode(context);
 
-    if (mode == null || mode.length() < 1) {
-      return PRODUCTION;
-    }
-
-    final String upperMode = mode.toUpperCase();
-    final Stage stage = Stage.valueOf(upperMode);
-
-    return stage == null ? PRODUCTION : stage;
-  }
-
-  private static String getMode(final BundleContext context) {
-    return context.getProperty(MODE_PROPERTY);
-  }
-
-  @Inject
-  private transient WebContainer webContainer;
-
-  protected Injector injector = null;
-
-  private transient final Filter wicketFilter = new EnzianFilter() {
-    @Override
-    public Injector getInjector() {
-      return injector;
-    }
-  };
-
-  private final Servlet dummyServlet = new Servlet(){
-    public void destroy() {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Servlet.destroy()");
-      }
-    }
-
-    public ServletConfig getServletConfig() {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Servlet.getServletConfig()");
-      }
-      return null;
-    }
-
-    public String getServletInfo() {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Servlet.getServletInfo()");
-      }
-      return null;
-    }
-
-    public void init(final ServletConfig arg0) throws ServletException {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Servlet.init(..)");
-      }
-    }
-
-    public void service(final ServletRequest req, final ServletResponse resp) throws ServletException, IOException {
-      if (LOG.isDebugEnabled()) {
-        LOG.debug("Servlet.service(..)");
-      }
-    }
-  };
-
-  protected void register(final WebContainer container, final BundleContext context) {
-    LOG.info("registering " + container + " for " + context);
-
-    final HttpContext defaultContext = container.createDefaultHttpContext();
-    final HttpContext httpContext = new HttpContext() {
-      public String getMimeType(final String name) {
-        final String value = defaultContext.getMimeType(name);
-
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("HttpContext.getMimeType(\"" + name + "\") returned: " + value);
+        if (mode == null || mode.length() < 1) {
+            return PRODUCTION;
         }
 
-        return value;
-      }
+        final String upperMode = mode.toUpperCase();
+        final Stage stage = Stage.valueOf(upperMode);
 
-      public URL getResource(final String name) {
-        final URL value = defaultContext.getResource(name);
+        return stage == null ? PRODUCTION : stage;
+    }
 
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("HttpContext.getResource(\"" + name + "\") returned: " + value);
+    private static String getMode(final BundleContext context) {
+        return context.getProperty(MODE_PROPERTY);
+    }
+
+    @Inject
+    private transient WebContainer webContainer;
+
+    protected Injector injector = null;
+
+    private transient final Filter wicketFilter = new EnzianFilter() {
+        @Override
+        public Injector getInjector() {
+            return injector;
         }
-        return value;
-      }
-
-      public boolean handleSecurity(final HttpServletRequest request,
-          final HttpServletResponse response) throws IOException {
-        final boolean value = defaultContext.handleSecurity(request, response);
-
-        if (LOG.isDebugEnabled()) {
-          LOG.debug("HttpContext.handleSecurity(" + request + ", "+ response + " ) returned: " + value);
-        }
-        return value;
-      }
     };
-    final Dictionary<String,String> containerParams = new Hashtable<String, String>();
-    final String mode = getMode(context);
 
-    if (mode != null && mode.length() < 1) {
-      containerParams.put("configuration" , mode);
-    }
+    private final Servlet dummyServlet = new Servlet() {
+        public void destroy() {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Servlet.destroy()");
+            }
+        }
 
-    container.setContextParam(containerParams, httpContext);
+        public ServletConfig getServletConfig() {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Servlet.getServletConfig()");
+            }
+            return null;
+        }
 
-    final Dictionary<String,String> filterParams = new Hashtable<String, String>();
+        public String getServletInfo() {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Servlet.getServletInfo()");
+            }
+            return null;
+        }
 
-    filterParams.put("applicationFactoryClassName", APP_FACTORY_CLASS_NAME);
+        public void init(final ServletConfig arg0) throws ServletException {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Servlet.init(..)");
+            }
+        }
 
-    final String[] as = new String[] {"/*"};
+        public void service(final ServletRequest req, final ServletResponse resp)
+                throws ServletException, IOException {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Servlet.service(..)");
+            }
+        }
+    };
 
-    container.registerFilter(wicketFilter, as, null, filterParams, httpContext);
+    protected void register(final WebContainer container,
+            final BundleContext context) {
+        LOG.info("registering " + container + " for " + context);
 
-    try {
-      container.registerServlet(dummyServlet, as, new Hashtable<String, String>(), httpContext);
-    } catch (final ServletException e) {
-      LOG.error("Error registering dummy sevlet", e);
-    }
-  }
+        final HttpContext defaultContext = container.createDefaultHttpContext();
+        final HttpContext httpContext = new HttpContext() {
+            public String getMimeType(final String name) {
+                final String value = defaultContext.getMimeType(name);
 
-  /**
-   * Called whenever the OSGi framework starts our bundle
-   */
-  public void start(final BundleContext context) {
-    LOG.info("starting " + Activator.class.getName());
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("HttpContext.getMimeType(\"" + name
+                            + "\") returned: " + value);
+                }
 
-    final Module osgiModule = osgiModule(context);
-    final Module importModule = new AbstractModule(){
-      @Override
-      protected void configure() {
-        final DecoratedServiceBuilder<WebContainer> service = service(WebContainer.class);
-        final AbstractWatcher<WebContainer> watcher = new AbstractWatcher<WebContainer>() {
-          @Override
-          protected WebContainer adding(final Import<WebContainer> svc) {
-            // the returned object is used in the modified and removed calls
-            final WebContainer instance = svc.get();
+                return value;
+            }
 
-            register(instance, context);
+            public URL getResource(final String name) {
+                final URL value = defaultContext.getResource(name);
 
-            return instance;
-          }
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("HttpContext.getResource(\"" + name
+                            + "\") returned: " + value);
+                }
+                return value;
+            }
 
-          @Override
-          protected void modified(final WebContainer instance, final Map<String, ?> attributes) {
-            unregister(instance);
-            register(instance, context);
-          }
+            public boolean handleSecurity(final HttpServletRequest request,
+                    final HttpServletResponse response) throws IOException {
+                final boolean value = defaultContext.handleSecurity(request,
+                        response);
 
-          @Override
-          protected void removed(final WebContainer instance) {
-            unregister(instance);
-          }
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("HttpContext.handleSecurity(" + request + ", "
+                            + response + " ) returned: " + value);
+                }
+                return value;
+            }
         };
-        final ServiceBuilder<WebContainer> out = service.out(watcher);
-        final ProxyProvider<WebContainer> single = out.single();
-        final EnzianAppliationImpl app = new EnzianAppliationImpl();
-        final AnnotatedBindingBuilder<WebContainer> containerBind = bind(WebContainer.class);
-        final AnnotatedBindingBuilder<WebApplication> appBinder = bind(WebApplication.class);
+        final Dictionary<String, String> containerParams = new Hashtable<String, String>();
+        final String mode = getMode(context);
 
-        appBinder.toInstance(app);
-        containerBind.toProvider(single);
-      }
-    };
+        if (mode != null && mode.length() < 1) {
+            containerParams.put("configuration", mode);
+        }
 
-    final Stage stage = getInjectorMode(context);
+        container.setContextParam(containerParams, httpContext);
 
-    LOG.info("creating an injector with mode " + stage);
+        final Dictionary<String, String> filterParams = new Hashtable<String, String>();
 
-    injector = createInjector(stage, osgiModule, importModule);
+        filterParams.put("applicationFactoryClassName", APP_FACTORY_CLASS_NAME);
 
-    injector.injectMembers(this);
-  }
+        final String[] as = new String[] { "/*" };
 
-  /**
-   * Called whenever the OSGi framework stops our bundle
-   */
-  public void stop(final BundleContext context)	{
-    LOG.info("stopping " + Activator.class.getName());
+        container.registerFilter(wicketFilter, as, null, filterParams,
+                httpContext);
 
-    unregister(webContainer);
-  }
+        try {
+            container.registerServlet(dummyServlet, as,
+                    new Hashtable<String, String>(), httpContext);
+        }
+        catch (final ServletException e) {
+            LOG.error("Error registering dummy sevlet", e);
+        }
+    }
 
-  protected void unregister(final WebContainer container) {
-    LOG.info("unregistering " + container);
+    /**
+     * Called whenever the OSGi framework starts our bundle
+     */
+    public void start(final BundleContext context) {
+        LOG.info("starting " + Activator.class.getName());
 
-    container.unregisterServlet(dummyServlet);
-    container.unregisterFilter(wicketFilter);
+        final Module osgiModule = osgiModule(context);
+        final Module importModule = new AbstractModule() {
+            @Override
+            protected void configure() {
+                final DecoratedServiceBuilder<WebContainer> service = service(WebContainer.class);
+                final AbstractWatcher<WebContainer> watcher = new AbstractWatcher<WebContainer>() {
+                    @Override
+                    protected WebContainer adding(final Import<WebContainer> svc) {
+                        // the returned object is used in the modified and
+                        // removed calls
+                        final WebContainer instance = svc.get();
 
-    injector = null;
-  }
+                        register(instance, context);
+
+                        return instance;
+                    }
+
+                    @Override
+                    protected void modified(final WebContainer instance,
+                            final Map<String, ?> attributes) {
+                        unregister(instance);
+                        register(instance, context);
+                    }
+
+                    @Override
+                    protected void removed(final WebContainer instance) {
+                        unregister(instance);
+                    }
+                };
+                final ServiceBuilder<WebContainer> out = service.out(watcher);
+                final ProxyProvider<WebContainer> single = out.single();
+                final EnzianAppliationImpl app = new EnzianAppliationImpl();
+                final AnnotatedBindingBuilder<WebContainer> containerBind = bind(WebContainer.class);
+                final AnnotatedBindingBuilder<WebApplication> appBinder = bind(WebApplication.class);
+
+                appBinder.toInstance(app);
+                containerBind.toProvider(single);
+            }
+        };
+
+        final Stage stage = getInjectorMode(context);
+
+        LOG.info("creating an injector with mode " + stage);
+
+        injector = createInjector(stage, osgiModule, importModule);
+
+        injector.injectMembers(this);
+    }
+
+    /**
+     * Called whenever the OSGi framework stops our bundle
+     */
+    public void stop(final BundleContext context) {
+        LOG.info("stopping " + Activator.class.getName());
+
+        unregister(webContainer);
+    }
+
+    protected void unregister(final WebContainer container) {
+        LOG.info("unregistering " + container);
+
+        container.unregisterServlet(dummyServlet);
+        container.unregisterFilter(wicketFilter);
+
+        injector = null;
+    }
 }
