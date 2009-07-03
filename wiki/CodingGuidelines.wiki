@@ -1,2 +1,46 @@
 #summary Suggestions for how to organize any code contributed to this project.
 = Coding Guidelines =
+
+Our core principals are:
+
+* keep things simple
+* use automation
+* use good style
+
+In order to make code formatting easier, please use the following Eclipse configuration files
+(if you are in fact using Eclipse):
+
+* [http://enzian.googlecode.com/svn/wiki/eclipse/formatter.xml formater.xml]: To configure the Eclipse Formatter
+* [http://enzian.googlecode.com/svn/wiki/eclipse/style.xml style.xml]: To configure the Eclipse Code Style
+* [http://enzian.googlecode.com/svn/wiki/eclipse/templates.xml style.xml]: To configure the Eclipse Code Templates
+
+== Copyright Notice & Code Ownership ==
+
+This project is free & open-source software. We welcome contributions from anyone. In order to be able to ensure that the software remains free free and open, please make sure you signed and submitted an [http://docs.google.com/View?id=dg66vvmn_32c2f87fdj Individual Contributor License Agreement] before submitting any code.
+
+Every file in the repository should be marked with a copyright folder that contains the following information:
+
+{{{
+/**
+ * (C) 2009 jolira (http://www.jolira.com).
+ *
+ * Licensed under the GNU General Public License, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.gnu.org/licenses/gpl-3.0-standalone.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+ *
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+}}}
+
+== Code Organization ==
+
+Every bundle should have a folder that contains all the code that is not exported. The name of the folder
+should be {{{bundlename.internal}}}. All code that references OSGi constructs should be kept in a folder called {{{bundlename.internal}}}. 
