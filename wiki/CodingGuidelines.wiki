@@ -1,0 +1,2 @@
+#summary Suggestions for how to organize any code contributed to this project.
+= Coding Guidelines =
