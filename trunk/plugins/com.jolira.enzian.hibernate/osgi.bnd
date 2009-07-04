@@ -9,3 +9,11 @@
 
 Bundle-Activator: ${bundle.namespace}.internal.osgi.Activator
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Include-Resource:\
+ OSGI-INF/src=src/main/java
+
+###################################
+# Required for database drivers :-(
+DynamicImport-Package: *
+###################################
+

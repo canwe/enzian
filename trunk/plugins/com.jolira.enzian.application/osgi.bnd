@@ -7,5 +7,8 @@
 #  OF ANY KIND, either express or implied. See the License for the specific
 #  language governing permissions and limitations under the License.
 
+Include-Resource:\
+ OSGI-INF/src=src/main/java
+
 Bundle-Activator: ${bundle.namespace}.internal.osgi.Activator
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
