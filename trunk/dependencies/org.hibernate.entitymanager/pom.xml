@@ -40,7 +40,7 @@
     <dependency>
       <groupId>com.jolira.enzian.dependencies</groupId>
       <artifactId>org.hibernate.ejb3-persistence</artifactId>
-      <version>1.0.2.GA-001-SNAPSHOT</version>
+      <version>3.3.2.Beta1-001-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
