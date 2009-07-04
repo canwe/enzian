@@ -47,9 +47,4 @@ public class ActivatorTest {
                     + b.getSymbolicName());
         }
     }
-
-    @Test
-    public void testLifeCycle() {
-        // TODO: Test something
-    }
 }
