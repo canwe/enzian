@@ -17,6 +17,20 @@
 
   <modules>
     <module>hsqldb</module>
+    <module>org.hibernate.entitymanager</module>
+    <module>org.hibernate.ejb3-persistence</module>
+    <module>org.hibernate.commons-annotations</module>
+    <module>org.hibernate.annotations</module>
+    <module>org.hibernate.core</module>
+    <module>dom4j</module>
+    <module>javax.transaction.jta</module>
+    <module>javassist</module>
+    <module>antlr</module>
+    <module>commons-collections</module>
+    <module>javax.security.jaas</module>
+    <module>javax.security.jacc</module>
+    <module>ant</module>
+    <module>xml-apis</module>
   </modules>
 
 </project>
