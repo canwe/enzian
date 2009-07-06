@@ -19,7 +19,7 @@
     <module>org.apache.wicket.guice</module>
     <module>com.jolira.enzian.application</module>
     <module>com.jolira.enzian.hibernate</module>
-    <module>com.jolira.enzian.jpa.person</module>
+    <!-- module>com.jolira.enzian.jpa.person</module -->
   </modules>
 
   <build>
