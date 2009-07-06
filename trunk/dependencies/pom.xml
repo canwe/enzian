@@ -16,32 +16,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>junit</module>
-    <module>asm</module>
-    <module>asm-1.5.3</module>
-    <module>asm-attrs</module>
-    <module>asm-util</module>
-    <module>asm-analysis</module>
-    <module>asm-tree</module>
-    <module>org.apache.geronimo.specs.geronimo-jta_1.0.1B_spec</module>
-    <module>org.hibernate</module>
-    <module>net.sf.ehcache</module>
-    <module>commons-logging</module>
-    <module>cglib</module>
-    <module>commons-collections-3.1</module>
-    <module>org.hibernate.ejb3-persistence</module>
-    <module>org.hibernate.entitymanager</module>
-    <module>org.hibernate.commons-annotations</module>
-    <module>org.hibernate.annotations</module>
-    <module>org.hibernate.core</module>
-    <module>dom4j</module>
-    <module>javassist</module>
-    <module>antlr</module>
-    <module>commons-collections</module>
-    <module>javax.security.jacc</module>
-    <module>ant</module>
-    <module>xml-apis</module>
-    <module>javax.persistence.api</module>
     <module>hsqldb</module>
   </modules>
 
