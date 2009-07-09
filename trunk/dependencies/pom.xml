@@ -31,6 +31,7 @@
     <module>javax.security.jacc</module>
     <module>ant</module>
     <module>xml-apis</module>
+    <module>jaxen</module>
   </modules>
 
 </project>
