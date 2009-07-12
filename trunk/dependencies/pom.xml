@@ -22,7 +22,6 @@
     <module>org.hibernate.commons-annotations</module>
     <module>org.hibernate.annotations</module>
     <module>org.hibernate.core</module>
-    <module>dom4j</module>
     <module>javax.transaction.jta</module>
     <module>javassist</module>
     <module>antlr</module>
@@ -30,8 +29,15 @@
     <module>javax.security.jaas</module>
     <module>javax.security.jacc</module>
     <module>ant</module>
-    <module>xml-apis</module>
     <module>jaxen</module>
+    <module>dom4j</module>
+    <module>jdom</module>
+    <module>xml-apis</module>
+    <module>xerces.xercesImpl</module>
+    <module>xom</module>
+    <module>xerces.xmlParserAPIs</module>
+    <module>xalan</module>
+    <module>com.ibm.icu.icu4j</module>
   </modules>
 
 </project>
