@@ -28,7 +28,7 @@
     <com.jolira.enzian.app.mode>development</com.jolira.enzian.app.mode>
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-    <org.osgi.framework.system.packages.extra>com.sun.jdi.request,sun.rmi.rmic,com.sun.jdi.event,com.sun.jdi,com.sun.jdi.connect,sun.security.x509</org.osgi.framework.system.packages.extra>
+    <org.osgi.framework.system.packages.extra>com.sun.jdi.request,sun.rmi.rmic,com.sun.jdi.event,com.sun.jdi,com.sun.jdi.connect,sun.security.x509,com.sun.org.apache.xerces.internal.parsers</org.osgi.framework.system.packages.extra>
   </properties>
 
   <packaging>pom</packaging>
