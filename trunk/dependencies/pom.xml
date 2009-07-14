@@ -38,6 +38,7 @@
     <module>xerces.xmlParserAPIs</module>
     <module>xalan</module>
     <module>com.ibm.icu.icu4j</module>
+    <module>xml-resolver</module>
   </modules>
 
 </project>
