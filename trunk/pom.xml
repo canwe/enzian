@@ -65,6 +65,7 @@
     <module>provision</module>
     <module>dependencies</module>
     <module>plugins</module>
+    <module>archetypes</module>
   </modules>
 
   <build>
