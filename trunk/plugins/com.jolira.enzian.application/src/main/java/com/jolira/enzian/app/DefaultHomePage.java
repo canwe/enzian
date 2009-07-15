@@ -11,10 +11,28 @@
 package com.jolira.enzian.app;
 
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
+
+import com.jolira.enzian.app.admin.AdminPage;
 
 /**
  * @author Joachim Kainz
  */
 public class DefaultHomePage extends WebPage {
+
+    public DefaultHomePage() {
+        super();
+        add(new Link("adminLink") {
+
+            @Override
+            public void onClick() {
+                setResponsePage(AdminPage.class);
+
+            }
+
+        });
+    }
+
     // nothing yet
 }

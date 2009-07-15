@@ -30,7 +30,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.authentication.AuthenticatedWebApplication;
 import org.ops4j.pax.web.service.WebContainer;
 import org.ops4j.peaberry.Import;
 import org.ops4j.peaberry.builders.DecoratedServiceBuilder;
@@ -234,10 +234,11 @@ public final class Activator implements BundleActivator {
                 final ProxyProvider<WebContainer> single = out.single();
                 final EnzianApplicationImpl app = new EnzianApplicationImpl();
                 final AnnotatedBindingBuilder<WebContainer> containerBind = bind(WebContainer.class);
-                final AnnotatedBindingBuilder<WebApplication> appBinder = bind(WebApplication.class);
+                final AnnotatedBindingBuilder<AuthenticatedWebApplication> appBinder = bind(AuthenticatedWebApplication.class);
 
                 appBinder.toInstance(app);
                 containerBind.toProvider(single);
+                
             }
         };
 

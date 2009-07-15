@@ -11,9 +11,12 @@
 package com.jolira.enzian.app.internal;
 
 import org.apache.wicket.Page;
-
+import org.apache.wicket.authentication.AuthenticatedWebSession;
+import org.apache.wicket.markup.html.WebPage;
 import com.jolira.enzian.app.DefaultHomePage;
 import com.jolira.enzian.app.EnzianApplication;
+import com.jolira.enzian.app.EnzianSession;
+import com.jolira.enzian.app.authentication.EnzianSignInPage;
 
 /**
  * @author Joachim Kainz
@@ -25,6 +28,17 @@ public final class EnzianApplicationImpl extends EnzianApplication {
     @Override
     public Class<? extends Page> getHomePage() {
         return DefaultHomePage.class;
+    }
+
+    @Override
+    protected Class<? extends WebPage> getSignInPageClass() {
+        return EnzianSignInPage.class;
+    }
+
+    @Override
+    protected Class<? extends AuthenticatedWebSession> getWebSessionClass() {
+        // TODO Inject Session?
+        return EnzianSessionImpl.class;
     }
 
 }

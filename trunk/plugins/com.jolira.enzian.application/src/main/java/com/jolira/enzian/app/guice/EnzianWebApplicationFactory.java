@@ -10,9 +10,9 @@
  */
 package com.jolira.enzian.app.guice;
 
+import org.apache.wicket.authentication.AuthenticatedWebApplication;
 import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.protocol.http.IWebApplicationFactory;
-import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.protocol.http.WicketFilter;
 
 import com.google.inject.Injector;
@@ -26,14 +26,14 @@ import com.jolira.enzian.app.internal.EnzianFilter;
  * @author Joachim Kainz
  */
 public class EnzianWebApplicationFactory implements IWebApplicationFactory {
-    public WebApplication createApplication(final WicketFilter filter) {
+    public AuthenticatedWebApplication createApplication(final WicketFilter filter) {
         if (!(filter instanceof EnzianFilter)) {
             throw new IllegalArgumentException("Filter must be a WicketFilter");
         }
 
         final EnzianFilter enzianFilter = (EnzianFilter) filter;
         final Injector injector = enzianFilter.getInjector();
-        final WebApplication app = injector.getInstance(WebApplication.class);
+        final AuthenticatedWebApplication app = injector.getInstance(AuthenticatedWebApplication.class);
 
         app.addComponentInstantiationListener(new GuiceComponentInjector(app,
                 injector));

@@ -15,6 +15,9 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
 
+import com.jolira.enzian.app.admin.AdminPage;
+import com.jolira.enzian.app.authentication.EnzianSignInPage;
+
 /**
  * @author Joachim F. Kainz
  */
@@ -25,8 +28,18 @@ public class DefaultHomePageTest {
     @Test
     public void testGetMarkupType() {
         final WicketTester tester = new WicketTester();
-
         tester.startPage(DefaultHomePage.class);
         tester.assertRenderedPage(DefaultHomePage.class);
+    }
+    
+    @Test
+    public void testGetAdminPage() {
+        final WicketTester tester = new WicketTester();
+        tester.startPage(DefaultHomePage.class);
+        tester.clickLink("adminLink");
+        tester.assertRenderedPage(AdminPage.class);
+        
+        tester.
+
     }
 }

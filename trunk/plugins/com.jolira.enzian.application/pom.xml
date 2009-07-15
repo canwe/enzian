@@ -23,7 +23,18 @@
   <name>${bundle.symbolicName}</name>
 
   <packaging>bundle</packaging>
-
+  
+	<build>
+		<resources>
+			<resource>
+			<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+	
   <dependencies>
     <dependency>
       <type>pom</type>
@@ -44,7 +55,7 @@
     <dependency>
       <groupId>com.jolira.enzian.plugins</groupId>
       <artifactId>org.apache.wicket.guice</artifactId>
-      <version>1.4-rc4p1</version>
+      <version>1.4-rc6p1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

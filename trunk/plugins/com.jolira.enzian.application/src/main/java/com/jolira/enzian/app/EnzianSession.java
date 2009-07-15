@@ -10,12 +10,22 @@
  */
 package com.jolira.enzian.app;
 
-import org.apache.wicket.authentication.AuthenticatedWebApplication;
+import org.apache.wicket.Request;
+import org.apache.wicket.authentication.AuthenticatedWebSession;
+import org.apache.wicket.authorization.strategies.role.Roles;
 
+import com.google.inject.ImplementedBy;
+import com.jolira.enzian.app.internal.EnzianSessionImpl;
 
 /**
- * Public API representing an example OSGi service
+ * @author Gabriel Hopper
  */
-public abstract class EnzianApplication extends AuthenticatedWebApplication {
-    // TODO
+@ImplementedBy(EnzianSessionImpl.class)
+public abstract class EnzianSession extends AuthenticatedWebSession {
+
+    public EnzianSession(Request request) {
+        super(request);
+        // TODO Auto-generated constructor stub
+    }
+
 }
