@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jolira.enzian.plugins</groupId>
   <artifactId>org.apache.wicket.guice</artifactId>
-  <version>1.4-rc4p1</version>
+  <version>1.4-rc6p1</version>
 
   <name>${bundle.symbolicName}</name>
 
@@ -31,12 +31,17 @@
     <dependency>
       <groupId>org.apache.wicket</groupId>
       <artifactId>wicket</artifactId>
-      <version>1.4-rc4</version>
+      <version>1.4-rc6</version>
     </dependency>
     <dependency>
       <groupId>org.apache.wicket</groupId>
       <artifactId>wicket-ioc</artifactId>
-      <version>1.4-rc4</version>
+      <version>1.4-rc6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-auth-roles</artifactId>
+      <version>1.4-rc6</version>
     </dependency>
     <dependency>
       <groupId>org.mortbay.jetty</groupId>
