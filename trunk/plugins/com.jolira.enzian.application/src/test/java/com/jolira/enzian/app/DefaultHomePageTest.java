@@ -39,7 +39,6 @@ public class DefaultHomePageTest {
         tester.clickLink("adminLink");
         tester.assertRenderedPage(AdminPage.class);
         
-        tester.
 
     }
 }
