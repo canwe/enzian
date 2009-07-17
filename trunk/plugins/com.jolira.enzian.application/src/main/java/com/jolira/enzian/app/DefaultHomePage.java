@@ -11,10 +11,12 @@
 package com.jolira.enzian.app;
 
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 
 import com.jolira.enzian.app.admin.AdminPage;
+import com.jolira.enzian.app.admin.BaseAdminPage;
+import com.jolira.enzian.app.admin.DefaultAdminPage;
+import com.jolira.enzian.app.admin.TestBaseAdminPage;
 
 /**
  * @author Joachim Kainz
@@ -22,17 +24,33 @@ import com.jolira.enzian.app.admin.AdminPage;
 public class DefaultHomePage extends WebPage {
 
     public DefaultHomePage() {
-        super();
-        add(new Link("adminLink") {
+// super();
+// add(new Link("simpleAdminLink") {
+// @Override
+// public void onClick() {
+// setResponsePage(AdminPage.class);
+// }
+// });
+//
+// add(new Link("baseAdminLink") {
+// @Override
+// public void onClick() {
+// setResponsePage(BaseAdminPage.class);
+// }
+// });
 
-            @Override
-            public void onClick() {
-                setResponsePage(AdminPage.class);
-
-            }
-
-        });
+// add(new Link("testBaseAdminLink") {
+// @Override
+// public void onClick() {
+// setResponsePage(TestBaseAdminPage.class);
+// }
+// });
+// add(new Link("tabbedAdminLink") {
+// @Override
+// public void onClick() {
+// setResponsePage(DefaultAdminPage.class);
+// }
+// });
     }
 
-    // nothing yet
 }

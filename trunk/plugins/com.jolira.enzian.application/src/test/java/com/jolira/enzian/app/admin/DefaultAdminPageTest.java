@@ -8,35 +8,43 @@
  * OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
+package com.jolira.enzian.app.admin;
 
-package com.jolira.enzian.app;
-
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
 
-import com.jolira.enzian.app.admin.AdminPage;
-
 /**
- * @author Joachim F. Kainz
+ * @author Gabriel Hopper
  */
-public class DefaultHomePageTest {
-    /**
-     * Test method for {@link WebPage#getMarkupType()}.
-     */
+
+public class DefaultAdminPageTest {
+
     @Test
-    public void testGetMarkupType() {
+    public void testGetTestBaseAdminPage() {
         final WicketTester tester = new WicketTester();
-        tester.startPage(DefaultHomePage.class);
-        tester.assertRenderedPage(DefaultHomePage.class);
+        tester.startPage(TestBaseAdminPage.class);
+        tester.assertRenderedPage(TestBaseAdminPage.class);
     }
 
     @Test
     public void testGetAdminPage() {
         final WicketTester tester = new WicketTester();
-        tester.startPage(DefaultHomePage.class);
-        tester.clickLink("adminLink");
+        tester.startPage(AdminPage.class);
         tester.assertRenderedPage(AdminPage.class);
-
     }
+
+    @Test
+    public void testGetBaseAdminPage() {
+        final WicketTester tester = new WicketTester();
+        tester.startPage(BaseAdminPage.class);
+        tester.assertRenderedPage(BaseAdminPage.class);
+    }
+
+    @Test
+    public void testGetDefaultAdminPage() {
+        final WicketTester tester = new WicketTester();
+        tester.startPage(DefaultAdminPage.class);
+        tester.assertRenderedPage(DefaultAdminPage.class);
+    }
+
 }

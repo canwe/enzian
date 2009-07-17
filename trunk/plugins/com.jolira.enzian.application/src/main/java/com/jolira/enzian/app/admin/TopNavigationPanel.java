@@ -10,39 +10,31 @@
  */
 package com.jolira.enzian.app.admin;
 
-import org.apache.wicket.authentication.pages.SignOutPage;
-import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
-import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
 
-import com.jolira.enzian.app.DefaultHomePage;
+import com.jolira.enzian.app.authentication.EnzianSignOutPage;
 
 /**
  * @author Gabriel Hopper
  */
-@AuthorizeInstantiation("ADMIN")
-public class AdminPage extends WebPage {
+public class TopNavigationPanel extends Panel {
 
-    public AdminPage() {
-        super();
-        add(new Link("homeLink") {
+    public TopNavigationPanel(String id) {
+        super(id);
 
-            @Override
-            public void onClick() {
-                setResponsePage(DefaultHomePage.class);
+        // TODO: iterate through list of HTML markup and components.
 
-            }
+        // TODO: get user name from sign-in.
+        add(new Label("userName", "User Name HERE"));
 
-        });
         add(new Link("signOutLink") {
-
             @Override
             public void onClick() {
-                setResponsePage(SignOutPage.class);
-
+                setResponsePage(EnzianSignOutPage.class);
             }
-
         });
-    }
 
+    }
 }
