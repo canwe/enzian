@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="CP1252"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>com.jolira.enzian</groupId>
+    <artifactId>enzian</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jolira.enzian.plugins</groupId>
+  <artifactId>plugins</artifactId>
+
+  <name>enzian - plugins</name>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>org.apache.wicket.guice</module>
+    <module>com.jolira.enzian.application</module>
+    <module>com.jolira.enzian.hibernate</module>
+    <!-- module>com.jolira.enzian.jpa.person</module -->
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-junit4osgi-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <deployprojectartifact>true</deployprojectartifact>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
