@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="CP1252"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>com.jolira.enzian</groupId>
+    <artifactId>enzian</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jolira.enzian.dependencies</groupId>
+  <artifactId>dependencies</artifactId>
+
+  <name>enzian - dependencies</name>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>junit</module>
+    <module>cglib</module>
+    <module>asm-util</module>
+    <module>asm-analysis</module>
+    <module>asm-tree</module>
+    <module>asm</module>
+  </modules>
+
+</project>
