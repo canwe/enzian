@@ -1,7 +1,0 @@
-Manifest-Version: 1
-Bundle-Version: 3.8.1.001_SNAPSHOT
-Bundle-Name: junit 3.8.1 [osgi]
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: junit
-Import-Package: org.osgi.framework,org.osgi.util.tracker
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6

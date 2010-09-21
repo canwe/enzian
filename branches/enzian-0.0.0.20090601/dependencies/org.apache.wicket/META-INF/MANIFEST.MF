@@ -1,8 +1,0 @@
-Manifest-Version: 1
-Bundle-Version: 1.4.0.rc2_001_SNAPSHOT
-Bundle-Name: org.apache.wicket 1.4-rc2 [osgi]
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: org.apache.wicket
-Import-Package: org.osgi.framework,org.osgi.util.tracker
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-
