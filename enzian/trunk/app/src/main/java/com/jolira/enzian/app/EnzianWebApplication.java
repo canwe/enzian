@@ -9,6 +9,9 @@ import java.util.Collection;
 import java.util.Set;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.request.target.coding.IRequestTargetUrlCodingStrategy;
+import org.apache.wicket.settings.IResourceSettings;
+import org.apache.wicket.util.resource.locator.IResourceStreamLocator;
 
 import com.google.code.joliratools.guicier.GuicierWebApplication;
 import com.google.inject.Injector;
@@ -41,5 +44,28 @@ public class EnzianWebApplication extends GuicierWebApplication {
         }
 
         throw new Error("No home page selector registered.");
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+
+        final TypeLiteral<Set<IRequestTargetUrlCodingStrategy>> setOfStrategies = new TypeLiteral<Set<IRequestTargetUrlCodingStrategy>>() {
+            //
+        };
+        final Key<Set<IRequestTargetUrlCodingStrategy>> setOfStrategiesKey = Key.get(setOfStrategies);
+        final Injector i = getInjector();
+        final Collection<IRequestTargetUrlCodingStrategy> strategies = i.getInstance(setOfStrategiesKey);
+
+        for (final IRequestTargetUrlCodingStrategy strategy : strategies) {
+            mount(strategy);
+        }
+
+        final IResourceSettings resourceSettings = getResourceSettings();
+        final IResourceStreamLocator resourceStreamLocator = resourceSettings.getResourceStreamLocator();
+        final StrippingResourceStreamLocator strippingLocator = new StrippingResourceStreamLocator(
+                resourceStreamLocator);
+
+        resourceSettings.setResourceStreamLocator(strippingLocator);
     }
 }

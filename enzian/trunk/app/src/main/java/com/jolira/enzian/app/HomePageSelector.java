@@ -5,7 +5,7 @@
 
 package com.jolira.enzian.app;
 
-import org.apache.wicket.Page;
+import org.apache.wicket.markup.html.WebPage;
 
 import com.jolira.enzian.utils.Ranked;
 
@@ -22,5 +22,5 @@ public interface HomePageSelector extends Ranked {
      * 
      * @return the home page or {@literal null}.
      */
-    public Class<? extends Page> getHomePage();
+    public Class<? extends WebPage> getHomePage();
 }

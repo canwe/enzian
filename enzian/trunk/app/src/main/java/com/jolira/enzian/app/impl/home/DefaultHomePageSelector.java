@@ -1,6 +1,6 @@
 package com.jolira.enzian.app.impl.home;
 
-import org.apache.wicket.Page;
+import org.apache.wicket.markup.html.WebPage;
 
 import com.jolira.enzian.app.HomePageSelector;
 
@@ -12,7 +12,7 @@ import com.jolira.enzian.app.HomePageSelector;
 public class DefaultHomePageSelector implements HomePageSelector {
 
     @Override
-    public Class<? extends Page> getHomePage() {
+    public Class<? extends WebPage> getHomePage() {
         return DefaultHome.class;
     }
 

@@ -5,13 +5,13 @@
 
 package com.jolira.enzian.app;
 
-import org.apache.wicket.Page;
+import org.apache.wicket.markup.html.WebPage;
 
 /**
  * @author jfk
  * @date Sep 26, 2010 10:48:03 PM
  * @since 1.0
  */
-public class EnzianBase extends Page {
-
+public class EnzianBase extends WebPage {
+    // nothing yet
 }

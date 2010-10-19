@@ -5,7 +5,7 @@
 
 package com.jolira.enzian.app.impl.home;
 
-import org.apache.wicket.Page;
+import com.jolira.enzian.app.EnzianBase;
 
 /**
  * The default home page.
@@ -14,6 +14,6 @@ import org.apache.wicket.Page;
  * @date Sep 26, 2010 10:39:53 PM
  * @since 1.0
  */
-public class DefaultHome extends Page {
-
+public class DefaultHome extends EnzianBase {
+    // nothing to add
 }

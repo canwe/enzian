@@ -12,20 +12,23 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.security.CodeSource;
-import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.StringTokenizer;
+
+import javax.servlet.http.HttpServlet;
 
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
+import org.apache.wicket.protocol.http.WicketFilter;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
-import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.servlet.FilterHolder;
+import org.eclipse.jetty.servlet.FilterMapping;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +44,6 @@ public class EnzianStarter {
     private static final String TARGET_TEST_CLASSES = "/target/test-classes";
     private static final String TARGET_CLASSES = "/target/classes";
     private static final Logger LOG = LoggerFactory.getLogger(EnzianStarter.class);
-    private static final String BASEDIR_PROP = "basedir";
 
     private static void addURL(final Collection<URL> result, final String directory) {
         final File dir = new File(directory);
@@ -56,28 +58,16 @@ public class EnzianStarter {
         result.add(url);
     }
 
-    private static File getBaseDir(final Class<?> clazz) {
-        final String basedir = System.getProperty(BASEDIR_PROP);
+    private static ClassLoader getClassLoader() {
+        final URL[] urls = getExtendedURLs();
+        final Thread currentThread = Thread.currentThread();
+        final ClassLoader currentThreadClassLoader = currentThread.getContextClassLoader();
 
-        if (basedir != null) {
-            return new File(basedir);
+        if (urls.length == 0) {
+            return currentThreadClassLoader;
         }
 
-        final ProtectionDomain pd = clazz.getProtectionDomain();
-        final CodeSource cs = pd.getCodeSource();
-        final URL location = cs.getLocation();
-        final String protocol = location.getProtocol();
-
-        if (!"file".equals(protocol)) {
-            throw new Error("coude source for class " + clazz
-                    + " is not a directory and cannot be used to determine the project dir: " + location);
-        }
-
-        final String classes = location.getFile();
-        final File _classes = new File(classes);
-        final File target = _classes.getParentFile();
-
-        return target.getParentFile();
+        return new URLClassLoader(urls, currentThreadClassLoader);
     }
 
     private static URL[] getExtendedURLs() {
@@ -128,26 +118,21 @@ public class EnzianStarter {
             return;
         }
 
-        updateClassPath();
-
         final Server server = new Server();
         final SelectChannelConnector httpConnector = new SelectChannelConnector();
         final Integer port = options.valueOf(portOption);
+        final ServletContextHandler context = new ServletContextHandler();
+        final FilterHolder holder = new FilterHolder(WicketFilter.class);
+        final ClassLoader cl = getClassLoader();
 
+        context.addServlet(HttpServlet.class, "/*");
+        holder.setInitParameter("applicationClassName", EnzianWebApplication.class.getName());
         httpConnector.setPort(port.intValue());
         server.setConnectors(new Connector[] { httpConnector });
-
-        final WebAppContext context = new WebAppContext();
-        final File baseDir = getBaseDir(EnzianStarter.class);
-        final File webappDir = new File(baseDir, "src/main/webapp");
-        final File webxml = new File(webappDir, "WEB-INF/web.xml");
-        final String resourceBase = webappDir.getAbsolutePath();
-        final String descriptor = webxml.getAbsolutePath();
-
+        context.addFilter(holder, "/*", FilterMapping.ALL);
         context.setContextPath("/");
-        context.setDescriptor(descriptor);
-        context.setResourceBase(resourceBase);
         server.setHandler(context);
+        context.setClassLoader(cl);
         server.start();
         server.join();
     }
@@ -160,19 +145,5 @@ public class EnzianStarter {
         } catch (final MalformedURLException e) {
             throw new Error(e);
         }
-    }
-
-    private static void updateClassPath() {
-        final URL[] urls = getExtendedURLs();
-
-        if (urls.length == 0) {
-            return;
-        }
-
-        final Thread currentThread = Thread.currentThread();
-        final ClassLoader currentThreadClassLoader = currentThread.getContextClassLoader();
-        final URLClassLoader urlClassLoader = new URLClassLoader(urls, currentThreadClassLoader);
-
-        currentThread.setContextClassLoader(urlClassLoader);
     }
 }
