@@ -21,10 +21,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <properties>
-    <jetty.version>7.1.6.v20100715</jetty.version>
-    <wicket.version>1.4.12</wicket.version>
-  </properties>
   <modules>
     <module>app</module>
     <module>war</module>
