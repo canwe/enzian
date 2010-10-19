@@ -22,7 +22,6 @@
   </licenses>
   <modules>
     <module>app</module>
-    <module>war</module>
   </modules>
   <scm>
     <connection>scm:svn:http://enzian.googlecode.com/svn/enzian/trunk</connection>
