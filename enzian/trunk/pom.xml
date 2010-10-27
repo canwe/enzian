@@ -8,7 +8,7 @@
   </parent>
   <groupId>com.jolira.enzian</groupId>
   <artifactId>enzian</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Enzian Application Server</name>
   <description>A light-weight, modular application server with lots of built-in
@@ -24,9 +24,9 @@
     <module>app</module>
   </modules>
   <scm>
-    <connection>scm:svn:http://enzian.googlecode.com/svn/enzian/tags/enzian-1.0.4</connection>
-    <developerConnection>scm:svn:https://enzian.googlecode.com/svn/enzian/tags/enzian-1.0.4</developerConnection>
-    <url>http://enzian.googlecode.com/svn/enzian/tags/enzian-1.0.4</url>
+    <connection>scm:svn:http://enzian.googlecode.com/svn/enzian/trunk</connection>
+    <developerConnection>scm:svn:https://enzian.googlecode.com/svn/enzian/trunk</developerConnection>
+    <url>http://enzian.googlecode.com/svn/enzian/trunk</url>
   </scm>
   <url>http://code.google.com/p/enzian</url>
   <build>
