@@ -3,15 +3,15 @@
  * the terms of the GNU Public License 2.0 which is available at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-package com.jolira.enzian.tasks;
+package com.jolira.enzian.tasks.ui;
+
+import com.jolira.enzian.app.EnzianBase;
 
 /**
- * A simple progress indicator for the tasks framework.
- * 
  * @author jfk
- * @date Oct 30, 2010 10:21:19 PM
+ * @date Oct 31, 2010 12:26:05 AM
  * @since 1.0
  */
-public interface ProgressIndiator {
-    // nothing yet
+public class TasksViewer extends EnzianBase {
+
 }

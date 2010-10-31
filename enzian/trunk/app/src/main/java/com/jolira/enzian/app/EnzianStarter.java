@@ -26,6 +26,7 @@ import org.apache.wicket.protocol.http.WicketFilter;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.FilterMapping;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -107,7 +108,7 @@ public class EnzianStarter {
     public static void main(final String[] args) throws Exception {
         final OptionParser parser = new OptionParser();
         final OptionSpec<Integer> portOption = parser.accepts(PORT_ARG).withRequiredArg().ofType(Integer.class)
-                .describedAs("listen port").defaultsTo(Integer.valueOf(8081));
+                .describedAs("listen port").defaultsTo(Integer.valueOf(9876));
 
         parser.acceptsAll(asList("h", "?"), "show help");
 
@@ -125,6 +126,7 @@ public class EnzianStarter {
         final FilterHolder holder = new FilterHolder(WicketFilter.class);
         final ClassLoader cl = getClassLoader();
 
+        context.setSessionHandler(new SessionHandler());
         context.addServlet(HttpServlet.class, "/*");
         holder.setInitParameter("applicationClassName", EnzianWebApplication.class.getName());
         httpConnector.setPort(port.intValue());

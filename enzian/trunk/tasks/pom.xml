@@ -28,5 +28,12 @@
       <artifactId>guice</artifactId>
       <version>${guice.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.jolira.enzian</groupId>
+      <artifactId>app</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 </project>

@@ -20,8 +20,12 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <properties>
+  	<guice.version>2.1.6</guice.version>
+  </properties>
   <modules>
     <module>app</module>
+    <module>tasks</module>
   </modules>
   <scm>
     <connection>scm:svn:http://enzian.googlecode.com/svn/enzian/trunk</connection>
