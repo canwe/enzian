@@ -1,1 +1,1 @@
-com.jolira.enzian.app.impl.guice.EnzianModule
+com.jolira.enzian.tasks.impl.guice.EnzianModule
