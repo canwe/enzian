@@ -14,6 +14,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 import javax.inject.Inject;
 
+import com.google.code.joliratools.plugins.ManagedSingleton;
 import com.jolira.enzian.tasks.ProgressIndiator;
 import com.jolira.enzian.tasks.Task;
 import com.jolira.enzian.tasks.TaskExecutor;
@@ -25,6 +26,7 @@ import com.jolira.enzian.tasks.TaskExecutor;
  * @date Oct 30, 2010 10:40:57 PM
  * @since 1.0
  */
+@ManagedSingleton
 public class TaskExecutorImpl implements TaskExecutor {
     private static final int THREAD_COUNT = 30;
     private final LinkedList<Task> tasks = new LinkedList<Task>();
