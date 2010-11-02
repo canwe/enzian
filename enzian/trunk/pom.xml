@@ -22,10 +22,9 @@
     </license>
   </licenses>
   <properties>
-    <guice.version>2.1.6</guice.version>
-    <guicier.version>1.1.7-SNAPSHOT</guicier.version>
+    <guice.version>2.1.8</guice.version>
+    <guicier.version>1.1.8</guicier.version>
     <wicket.version>1.4.12</wicket.version>
-    <guice.version>2.1.7-SNAPSHOT</guice.version>
     <jetty.version>7.1.6.v20100715</jetty.version>
     <junit.version>4.8.1</junit.version>
     <slf4j.version>1.6.1</slf4j.version>

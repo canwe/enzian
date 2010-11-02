@@ -23,30 +23,14 @@ import joptsimple.OptionSpecBuilder;
  * @date Oct 31, 2010 11:54:40 AM
  * @since 1.0
  */
-public class EnzianOptionParser {
+class EnzianOptionParser {
     private static final String PORT_ARG = "p";
     private final OptionSpec<Integer> portOption;
     private final OptionSpec<?> helpOption;
-    private final OptionParser parser;
+    private final OptionParser parser = new OptionParser();
     private OptionSet options = null;
 
-    /**
-     * Create a new parser.
-     */
-    public EnzianOptionParser() {
-        this(new OptionParser());
-
-    }
-
-    /**
-     * A method for subclasses to override.
-     * 
-     * @param parser
-     *            the new parser to be initialized
-     */
-    protected EnzianOptionParser(final OptionParser parser) {
-        this.parser = parser;
-
+    EnzianOptionParser() {
         portOption = createPortOption(parser);
         helpOption = createHelpOption(parser);
     }

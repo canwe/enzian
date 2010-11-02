@@ -115,13 +115,6 @@ public class EnzianStarter {
     }
 
     /**
-     * @return a parser for the command line
-     */
-    protected EnzianOptionParser createOptionParser() {
-        return new EnzianOptionParser();
-    }
-
-    /**
      * Execute with command line arguments.
      * 
      * @param args
@@ -130,7 +123,7 @@ public class EnzianStarter {
      *             stuff happened
      */
     public void execute(final String[] args) throws Exception {
-        final EnzianOptionParser parser = createOptionParser();
+        final EnzianOptionParser parser = new EnzianOptionParser();
 
         if (!parser.parse(args)) {
             parser.printHelp(System.err);
@@ -140,14 +133,13 @@ public class EnzianStarter {
         final Server server = new Server();
         final SelectChannelConnector httpConnector = new SelectChannelConnector();
         final int port = parser.getPort();
-        final String applicationClassName = getApplicationClassName();
         final ServletContextHandler context = new ServletContextHandler();
         final FilterHolder holder = new FilterHolder(WicketFilter.class);
         final ClassLoader cl = getClassLoader();
 
         context.setSessionHandler(new SessionHandler());
         context.addServlet(HttpServlet.class, "/*");
-        holder.setInitParameter("applicationClassName", applicationClassName);
+        holder.setInitParameter("applicationClassName", EnzianWebApplication.class.getName());
         httpConnector.setPort(port);
         server.setConnectors(new Connector[] { httpConnector });
         context.addFilter(holder, "/*", FilterMapping.ALL);
@@ -158,10 +150,4 @@ public class EnzianStarter {
         server.join();
     }
 
-    /**
-     * @return
-     */
-    protected String getApplicationClassName() {
-        return EnzianWebApplication.class.getName();
-    }
 }
