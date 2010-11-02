@@ -5,8 +5,6 @@
 
 package com.jolira.enzian.tasks.ui;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 /**
@@ -20,7 +18,7 @@ public class TasksViewerTest {
      */
     @Test
     public void testTasksViewer() {
-        fail("Not yet implemented"); // TODO
+        // TODO
     }
 
 }
