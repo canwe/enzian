@@ -79,7 +79,7 @@ class EnzianOptionParser {
     public boolean parse(final String[] args) {
         options = parser.parse(args);
 
-        return options.has(helpOption);
+        return !options.has(helpOption);
     }
 
     /**
