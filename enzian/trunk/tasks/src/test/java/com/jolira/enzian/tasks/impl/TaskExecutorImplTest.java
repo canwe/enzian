@@ -21,7 +21,7 @@ public class TaskExecutorImplTest {
      */
     @Test
     public void testTaskExecutorImpl() {
-        final TaskExecutorImpl executor = new TaskExecutorImpl();
+        final TaskExecutorImpl executor = new TaskExecutorImpl(3);
 
         executor.execute("test", new Runnable() {
             @Override

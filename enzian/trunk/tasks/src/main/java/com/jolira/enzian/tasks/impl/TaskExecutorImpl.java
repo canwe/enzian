@@ -5,14 +5,12 @@
 
 package com.jolira.enzian.tasks.impl;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.google.code.joliratools.plugins.ManagedSingleton;
 import com.jolira.enzian.tasks.ProgressIndiator;
@@ -28,13 +26,12 @@ import com.jolira.enzian.tasks.TaskExecutor;
  */
 @ManagedSingleton
 public class TaskExecutorImpl implements TaskExecutor {
-    private static final int THREAD_COUNT = 30;
     private final LinkedList<Task> tasks = new LinkedList<Task>();
     private final Executor executor;
 
     @Inject
-    TaskExecutorImpl() {
-        executor = new ThreadPoolExecutor(1, THREAD_COUNT, 15, SECONDS, new LinkedBlockingQueue<Runnable>());
+    TaskExecutorImpl(@Named("TaskExecutorThreadCount") final int nThreads) {
+        executor = Executors.newFixedThreadPool(nThreads);
     }
 
     @Override
