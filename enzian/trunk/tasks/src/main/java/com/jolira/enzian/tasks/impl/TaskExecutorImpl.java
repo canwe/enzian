@@ -53,4 +53,19 @@ public class TaskExecutorImpl implements TaskExecutor {
             return tasks.toArray(new Task[size]);
         }
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+
+        builder.append("TaskExecutorImpl [");
+        builder.append("tasks=");
+        builder.append(tasks);
+        builder.append(", ");
+        builder.append("executor=");
+        builder.append(executor);
+        builder.append("]");
+
+        return builder.toString();
+    }
 }

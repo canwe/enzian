@@ -12,6 +12,11 @@ import static com.jolira.enzian.tasks.Status.FAILED;
 import static com.jolira.enzian.tasks.Status.PENDING;
 import static com.jolira.enzian.tasks.Status.RUNNING;
 
+import java.sql.Date;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jolira.enzian.tasks.ProgressIndiator;
 import com.jolira.enzian.tasks.Status;
 import com.jolira.enzian.tasks.Task;
@@ -22,6 +27,22 @@ import com.jolira.enzian.tasks.Task;
  * @since 1.0
  */
 final class TaskImpl implements Task, Runnable {
+    private final static Logger LOG = LoggerFactory.getLogger(TaskImpl.class);
+
+    private static Throwable getRootCause(final Throwable e) {
+        final Throwable cause = e.getCause();
+
+        if (cause == null) {
+            return e;
+        }
+
+        if (cause == e) {
+            return e;
+        }
+
+        return getRootCause(cause);
+    }
+
     private final long submitted = System.currentTimeMillis();
     private long started = -1;
     private long ended = -1;
@@ -30,6 +51,7 @@ final class TaskImpl implements Task, Runnable {
     private final ProgressIndiator indicator;
     private Status status = PENDING;
     private Thread thread = null;
+
     private Throwable failure;
 
     TaskImpl(final String name, final Runnable runnable, final ProgressIndiator indicator) {
@@ -40,6 +62,8 @@ final class TaskImpl implements Task, Runnable {
 
     @Override
     public void cancel() {
+        LOG.info("cancelling " + this);
+
         final Status s = status;
 
         if (!RUNNING.equals(s) && !PENDING.equals(s)) {
@@ -53,6 +77,45 @@ final class TaskImpl implements Task, Runnable {
         if (current != null) {
             current.interrupt();
         }
+    }
+
+    /**
+     * @throws Error
+     */
+    private void doRun() throws Error {
+        switch (status) {
+        case CANCELLING:
+            status = CANCELED;
+            return;
+
+        case CANCELED:
+        case COMPLETED:
+        case FAILED:
+        case RUNNING:
+            status = FAILED;
+            failure = new Error("invalid state " + status);
+            return;
+
+        case PENDING:
+            break;
+        }
+
+        status = RUNNING;
+        started = System.currentTimeMillis();
+        thread = Thread.currentThread();
+
+        try {
+            runnable.run();
+        } catch (final Throwable e) {
+            status = FAILED;
+            failure = e;
+            return;
+        } finally {
+            ended = System.currentTimeMillis();
+            thread = null;
+        }
+
+        status = COMPLETED;
     }
 
     /**
@@ -110,36 +173,61 @@ final class TaskImpl implements Task, Runnable {
 
     @Override
     public void run() {
-        switch (status) {
-        case CANCELLING:
-            status = CANCELED;
-            return;
-
-        case CANCELED:
-        case COMPLETED:
-        case FAILED:
-        case RUNNING:
-            throw new Error("invalid state " + status);
-
-        case PENDING:
-            break;
-        }
-
-        status = RUNNING;
-        started = System.currentTimeMillis();
-        thread = Thread.currentThread();
+        LOG.info("running task " + this);
 
         try {
-            runnable.run();
-        } catch (final Throwable e) {
-            status = FAILED;
-            failure = e;
-            return;
+            doRun();
         } finally {
-            ended = System.currentTimeMillis();
-            thread = null;
+            if (failure != null) {
+                LOG.error("failure while running " + this, getRootCause(failure));
+            } else {
+                LOG.info("exiting task " + this);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("TaskImpl [submitted=");
+        builder.append(new Date(submitted));
+
+        if (started != -1) {
+            builder.append(", started=");
+            builder.append(new Date(started));
         }
 
-        status = COMPLETED;
+        if (ended != -1) {
+            builder.append(", ended=");
+            builder.append(ended);
+        }
+
+        builder.append(", name=");
+        builder.append(name);
+        builder.append(", runnable=");
+        builder.append(runnable);
+        builder.append(", ");
+
+        if (indicator != null) {
+            builder.append(", indicator=");
+            builder.append(indicator);
+        }
+
+        builder.append(", status=");
+        builder.append(status);
+
+        if (thread != null) {
+            builder.append(", thread=");
+            builder.append(thread);
+        }
+
+        if (failure != null) {
+            builder.append(", failure=");
+            builder.append(failure);
+        }
+
+        builder.append("]");
+
+        return builder.toString();
     }
 }
