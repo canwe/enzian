@@ -44,7 +44,7 @@ public class TaskImplTest {
     /**
     *
     */
-    @Test(expected = Error.class)
+    @Test
     public void testError() {
         final TaskImpl task = new TaskImpl("test", new Runnable() {
             @Override
@@ -58,6 +58,10 @@ public class TaskImplTest {
         task.run();
         task.cancel();
         task.run();
+
+        final Throwable failure = task.getFailure();
+
+        assertNotNull(failure);
     }
 
     /**
