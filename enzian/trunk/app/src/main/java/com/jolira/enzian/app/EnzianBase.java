@@ -5,6 +5,7 @@
 
 package com.jolira.enzian.app;
 
+import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 
 /**
@@ -13,5 +14,20 @@ import org.apache.wicket.markup.html.WebPage;
  * @since 1.0
  */
 public class EnzianBase extends WebPage {
-    // nothing yet
+    /**
+     *
+     */
+    public EnzianBase() {
+        // nothing
+    }
+
+    /**
+     * Create a new base.
+     * 
+     * @param params
+     *            wicket parameters
+     */
+    public EnzianBase(final PageParameters params) {
+        super(params);
+    }
 }
