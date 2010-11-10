@@ -35,7 +35,7 @@ public class TaskExecutorImpl implements TaskExecutor {
     }
 
     @Override
-    public void execute(final String name, final Runnable runnable, final ProgressIndiator indicator) {
+    public Task execute(final String name, final Runnable runnable, final ProgressIndiator indicator) {
         final TaskImpl task = new TaskImpl(name, runnable, indicator);
 
         executor.execute(task);
@@ -43,6 +43,8 @@ public class TaskExecutorImpl implements TaskExecutor {
         synchronized (tasks) {
             tasks.addFirst(task);
         }
+
+        return task;
     }
 
     @Override

@@ -25,8 +25,9 @@ public interface TaskExecutor {
      *            the runnable be executed
      * @param indicator
      *            an interface providing information about progress of the task; may be {@literal null}.
+     * @return the newly created task
      */
-    public void execute(@Nonnull String name, @Nonnull Runnable runnable, @Nullable ProgressIndiator indicator);
+    public Task execute(@Nonnull String name, @Nonnull Runnable runnable, @Nullable ProgressIndiator indicator);
 
     /**
      * @return all currently known tasks
