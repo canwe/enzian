@@ -1,0 +1,37 @@
+/**  Copyright (c) 2010 jolira.
+ * All rights reserved. This program and the accompanying
+ * materials are made available under the terms of the
+ * GNU Public License 2.0 which is available at
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+*/
+@charset "utf-8";
+body {
+ margin-left: 20px;
+ font-family: Verdana,Arial,Helvetica,sans-serif;
+ text-align: justify;
+ background-color: white;
+ color: black;
+}
+p {
+ margin-bottom: 3px;
+}
+br {
+ margin-bottom: 10px;
+}
+h1 {
+ border-bottom: thin solid #d8b028;
+}
+a:link, a:visited {
+ text-decoration: none;
+}
+a:hover {
+ color: #d8b028;
+}
+ul {
+ /* list-style-image: url('o.png'); */
+ margin-right: 30px;
+}
+b {
+ color: #d8b028;
+ font-variant: small-caps;
+}
