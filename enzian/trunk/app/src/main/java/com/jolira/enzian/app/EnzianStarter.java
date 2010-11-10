@@ -78,12 +78,14 @@ public class EnzianStarter {
                 final String base = token.substring(0, tokenLen - postfixLen);
 
                 addURL(result, base + "/src/test/resources");
+                addURL(result, base + "/src/test/java");
             } else if (token.endsWith(TARGET_CLASSES)) {
                 final int tokenLen = token.length();
                 final int postfixLen = TARGET_CLASSES.length();
                 final String base = token.substring(0, tokenLen - postfixLen);
 
                 addURL(result, base + "/src/main/resources");
+                addURL(result, base + "/src/main/java");
             }
         }
 

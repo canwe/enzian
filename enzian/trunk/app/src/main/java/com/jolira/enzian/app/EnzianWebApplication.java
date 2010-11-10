@@ -11,7 +11,6 @@ import java.util.Set;
 import org.apache.wicket.Page;
 import org.apache.wicket.request.target.coding.IRequestTargetUrlCodingStrategy;
 import org.apache.wicket.settings.IResourceSettings;
-import org.apache.wicket.util.resource.locator.IResourceStreamLocator;
 
 import com.google.code.joliratools.guicier.GuicierWebApplication;
 import com.google.inject.Injector;
@@ -62,10 +61,7 @@ public class EnzianWebApplication extends GuicierWebApplication {
         }
 
         final IResourceSettings resourceSettings = getResourceSettings();
-        final IResourceStreamLocator resourceStreamLocator = resourceSettings.getResourceStreamLocator();
-        final StrippingResourceStreamLocator strippingLocator = new StrippingResourceStreamLocator(
-                resourceStreamLocator);
 
-        resourceSettings.setResourceStreamLocator(strippingLocator);
+        resourceSettings.setResourceStreamLocator(new EnzianResourceStreamLoacator());
     }
 }

@@ -3,18 +3,12 @@ package com.jolira.enzian.app;
 import java.util.Locale;
 
 import org.apache.wicket.util.resource.IResourceStream;
-import org.apache.wicket.util.resource.locator.IResourceStreamLocator;
+import org.apache.wicket.util.resource.locator.ResourceStreamLocator;
 
-final class StrippingResourceStreamLocator implements IResourceStreamLocator {
-    private final IResourceStreamLocator resourceStreamLocator;
-
-    StrippingResourceStreamLocator(final IResourceStreamLocator resourceStreamLocator) {
-        this.resourceStreamLocator = resourceStreamLocator;
-    }
-
+final class EnzianResourceStreamLoacator extends ResourceStreamLocator {
     @Override
     public IResourceStream locate(final Class<?> clazz, final String path) {
-        final IResourceStream located = resourceStreamLocator.locate(clazz, path);
+        final IResourceStream located = super.locate(clazz, path);
 
         if (located != null) {
             return located;
@@ -26,13 +20,13 @@ final class StrippingResourceStreamLocator implements IResourceStreamLocator {
             return null;
         }
 
-        return resourceStreamLocator.locate(clazz, stripped);
+        return super.locate(clazz, stripped);
     }
 
     @Override
     public IResourceStream locate(final Class<?> clazz, final String path, final String style, final Locale locale,
             final String extension) {
-        final IResourceStream located = resourceStreamLocator.locate(clazz, path, style, locale, extension);
+        final IResourceStream located = super.locate(clazz, path, style, locale, extension);
 
         if (located != null) {
             return located;
@@ -44,7 +38,7 @@ final class StrippingResourceStreamLocator implements IResourceStreamLocator {
             return null;
         }
 
-        return resourceStreamLocator.locate(clazz, stripped, style, locale, extension);
+        return super.locate(clazz, stripped, style, locale, extension);
     }
 
     private String stripPackageName(final Class<?> clazz, final String path) {
